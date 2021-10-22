@@ -1,0 +1,8 @@
+﻿<GroupBox Name="GBDVstation_op_v" cols="xs12 sm6 md4" visible="0"><Ctrls>
+<ListCtrl Name="station_op_vLst" ToolTip="ttp_station_op_v" Size="70,20" visible="0" OnLoad="init" loadedclick="1">
+	<DbDetails fcsm="1">
+<DbTable>desoutter.station_op_v</DbTable>
+<Data>`posco_code`,`station_name`,`desoutter_ip`,`desoutter_port`,`logfilefmt`,`logfilepath`,`station_id`,`mesapi`,`customer`,`division`,`assemblynumber`,`testername`,`testprocess`,`boardtype`,`assemblyrevision`,`station_code`</Data>
+<Where>station_id='%{stationid}'</Where></DbDetails>
+</ListCtrl>
+</Ctrls></GroupBox>

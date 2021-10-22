@@ -1,0 +1,30 @@
+﻿<GroupBox Name="GBDEDITmesconfig" text="Search" toggle="1"><Ctrls>
+<GroupBox Name="GB_mesapi" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_mesapi" Size="60,20" Text="mesapi" Align="Right"/>
+<TextBox Name="mesapi" Size="170,20" Text="" Weight="170" ToolTip="ttp_mesapi"></TextBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_customer" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_customer" Size="60,20" Text="customer" Align="Right"/>
+<TextBox Name="customer" Size="170,20" Text="" Weight="170" ToolTip="ttp_customer"></TextBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_assemblyrevision" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_assemblyrevision" Size="60,20" Text="assemblyrevision" Align="Right"/>
+<TextBox Name="assemblyrevision" Size="170,20" Text="" Weight="170" ToolTip="ttp_assemblyrevision"></TextBox>
+</Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox Name="GB_testername" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_testername" Size="60,20" Text="testername" Align="Right"/>
+<TextBox Name="testername" Size="170,20" Text="" Weight="170" ToolTip="ttp_testername"></TextBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_testprocess" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_testprocess" Size="60,20" Text="testprocess" Align="Right"/>
+<TextBox Name="testprocess" Size="170,20" Text="" Weight="170" ToolTip="ttp_testprocess"></TextBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_assemblynumber" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_assemblynumber" Size="60,20" Text="assemblynumber" Align="Right"/>
+<TextBox Name="assemblynumber" Size="170,20" Text="" Weight="170" ToolTip="ttp_assemblynumber"></TextBox>
+</Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox Name="GB_division" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_division" Size="60,20" Text="division" Align="Right"/>
+<TextBox Name="division" Size="170,20" Text="" Weight="170" ToolTip="ttp_division"></TextBox>
+</Ctrls></GroupBox>
+</Ctrls></GroupBox>

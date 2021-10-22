@@ -1,0 +1,13 @@
+﻿<GroupBox Name="GBDVstation" cols="xs12 sm12 md12 lg12"><Ctrls>
+<ListCtrl Name="station_vLst" ToolTip="ttp_station_v" Size="700,450" OnLoad="init" Heading="station_name,100;station_code,100;posco_code,100;desoutter_ip,100;desoutter_port,55;logfilefmt,250;logfilepath,250;created_by,55;creation_date,150;last_update_by,55;last_update_date,150;station_id,55;" loadedclick="0">
+	<DbDetails >
+<Index>station_id</Index>
+<DbTable>desoutter.station s</DbTable>
+<Data>s.station_name,s.station_code,s.posco_code,s.desoutter_ip,s.desoutter_port,s.logfilefmt,s.logfilepath,s.created_by,s.creation_date,s.last_update_by,s.last_update_date,s.station_id</Data>
+<Order>station_id</Order></DbDetails>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="station_ops.xml"/>
+<OnChanged>
+<assign name="pgcur_station" expr="js(%{station_vLst[currentpage]}+1)"/>
+<assign name="pgscb_station" expr="js(%{station_vLst[currentpage]}+1)" function="SetSel"/>
+</OnChanged></ListCtrl>
+</Ctrls></GroupBox>

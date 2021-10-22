@@ -1,0 +1,22 @@
+﻿<WndTap Name="users_pick" Text="users_Pick">
+<var name="searchtmpl"><user_name format="(u.user_name like '%%{opvalue}%')"/><user_role format="u.user_role='%{opvalue}'"/><real_name format="(u.real_name like '%%{opvalue}%')"/><memo format="(u.memo like '%%{opvalue}%')"/><user_id format="(u.user_id like '%%{opvalue}%')"/><created_by format="(u.created_by like '%%{opvalue}%')"/><creation_date format="(u.creation_date between '%{creation_date[datetime]}' and '%{creation_date[datetime2]}')"/><last_update_by format="(u.last_update_by like '%%{opvalue}%')"/><last_update_date format="(u.last_update_date between '%{last_update_date[datetime]}' and '%{last_update_date[datetime2]}')"/></var>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\users.xml"/>
+<Ctrls><GroupBox  Name="GBusers" id="users" Text="users" Size="100,100"><Ctrls>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="users_Vs.xml"/>
+<BR AutoHeight="1"/><GroupBox  Name="GBOPVusers" Size="100,20" cols="xs12 sm6 md4"><Ctrls>
+<Button Text="reset" ToolTip="ttp_resetusers" Name="resetusers" Size="50,20">	<OnClick>	<submit next="GBDEDITusers" function="reset"/>	</OnClick>	</Button><TAB/>	
+<Button Text="Search" ToolTip="ttp_gsearchusers" Name="gsearchusers" Size="50,20">	<OnClick>	
+<search next="users_vLst" listed="0" prefixwhere="0" prefixand="0" inputed="1">%{searchtmpl}</search><submit next="GBDEDITusers" namelist="search" function="search"/>	
+</OnClick></Button><TAB/></Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox Name="GBDVusers" cols="xs12 sm12 md12 lg12"><Ctrls>
+<ListCtrl Name="users_vLst" ToolTip="ttp_users_v" Size="700,450" Heading="user_name,150;user_role,120;real_name,150;memo,500;user_id,55;created_by,55;creation_date,150;last_update_by,55;last_update_date,150;" loadedclick="0">
+	<DbDetails >
+<Index>user_id</Index>
+<DbTable>desoutter.users u left join desoutter.user_role u0 on u.user_role=u0.role_id</DbTable>
+<Data>u.user_name,u0.role_name user_role,u.real_name,u.memo,u.user_id,u.created_by,u.creation_date,u.last_update_by,u.last_update_date</Data>
+<Order>user_id</Order></DbDetails>
+<OnClick><if cond="%{users_vLst[user_id]}"><DbDetails><Where>user_id='%{users_vLst[user_id]}'</Where></DbDetails><submit namelist="DbDetails" next="$parent.%{frmwndctrl}"/><submit function="onok"/></if></OnClick>
+</ListCtrl>
+</Ctrls></GroupBox>
+</Ctrls></GroupBox>
+</Ctrls></WndTap>

@@ -1,0 +1,40 @@
+﻿<Language name="mesconfig">
+<Lang name="mesconfig" value="Mesconfig"/>
+<Lang name="TabEditmesconfig" value="Mesconfig Edit"/>
+<Lang name="TabViewmesconfig" value="Mesconfig View"/>
+<Lang name="mesapi" value="Mesapi"/>
+<Lang name="ttp_mesapi" value=""/>
+<Lang name="customer" value="Customer - (C)"/>
+<Lang name="ttp_customer" value="Customer"/>
+<Lang name="assemblyrevision" value="Assembly Revision - (r)"/>
+<Lang name="ttp_assemblyrevision" value="Assembly Revision"/>
+<Lang name="testername" value="Tester Name - (N)"/>
+<Lang name="ttp_testername" value="Tester Name"/>
+<Lang name="testprocess" value="Test Process - (P)"/>
+<Lang name="ttp_testprocess" value="Test Process"/>
+<Lang name="assemblynumber" value="Assembly Number - (n)"/>
+<Lang name="ttp_assemblynumber" value="Assembly Number"/>
+<Lang name="division" value="Division - (l)"/>
+<Lang name="ttp_division" value="Line"/>
+<Lang name="boardtype" value="Boardtype - (B)"/>
+<Lang name="ttp_boardtype" value="Boardtype"/>
+<Lang name="station_id" value=""/>
+<Lang name="ttp_station_id" value=""/>
+<Lang name="mes_id" value=""/>
+<Lang name="ttp_mes_id" value=""/>
+<Lang name="ttp_operationmesconfig" value=""/>
+<Lang name="ttp_createmesconfig" value=""/>
+<Lang name="ttp_modifymesconfig" value=""/>
+<Lang name="ttp_resetmesconfig" value=""/>
+<Lang name="ttp_deletemesconfig" value=""/>
+<Lang name="ttp_refreshmesconfig" value=""/>
+<Lang name="operation" value=""/>
+<Lang name="create" value=""/>
+<Lang name="modify" value=""/>
+<Lang name="reset" value=""/>
+<Lang name="delete" value=""/>
+<Lang name="refresh" value=""/>
+<Lang name="firstpage" value=""/>
+<Lang name="prepage" value=""/>
+<Lang name="nextpage" value=""/>
+</Language>

@@ -1,0 +1,17 @@
+﻿<GroupBox cols="xs12 sm6 md4" Name="GBOPVstation_op_v" Size="100,100"><Ctrls>
+<Button Text="delete" ToolTip="ttp_deletestation_op_v" Name="deletestation_op_v" Size="50,20">
+	<OnClick>
+	<DbDetails fcsm="1">
+<DbTable>desoutter.station_op_v</DbTable>
+<Where>station_code='%{station_op_vLst[station_code]}' and station_name='%{station_op_vLst[station_name]}' and desoutter_ip='%{station_op_vLst[desoutter_ip]}' and desoutter_port='%{station_op_vLst[desoutter_port]}' and logfilefmt='%{station_op_vLst[logfilefmt]}' and logfilepath='%{station_op_vLst[logfilepath]}' and modellist_name='%{station_op_vLst[modellist_name]}' and product_code='%{station_op_vLst[product_code]}' and product_name='%{station_op_vLst[product_name]}' and memo='%{station_op_vLst[memo]}' and station_id='%{station_op_vLst[station_id]}' and modellist_id='%{station_op_vLst[modellist_id]}' and product_id='%{station_op_vLst[product_id]}'</Where>
+<queryFormat>delete from %{table} where %{where}</queryFormat></DbDetails>
+	<submit namelist="DbDetails"/><submit next="searchstation_op_v" function="click"/>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="refresh" ToolTip="ttp_refreshstation_op_v" Name="searchstation_op_v" Size="50,20">
+			  <OnClick><submit next="station_op_vLst"/>	</OnClick>
+</Button>
+<TAB/><TAB/><Button Text="firstpage" Name="FPstation_op_vLst" OnClick="(station_op_vLst)GetPage(First)" Size="50,20"/>
+<TAB/><Button Text="prepage" Name="PREstation_op_vLst" OnClick="(station_op_vLst)GetPage(Pre)" Size="50,20"/>
+<TAB/><Button Text="nextpage" Name="NPstation_op_vLst" OnClick="(station_op_vLst)GetPage(Next)" Size="50,20"/>
+</Ctrls></GroupBox>

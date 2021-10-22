@@ -1,0 +1,12 @@
+﻿<GroupBox Name="GBDVmodellist" cols="xs12 sm12 md12 lg12" visible="0"><Ctrls>
+<ListCtrl Name="modellistLst" ToolTip="ttp_modellist" Size="70,20" visible="0" loadedclick="1">
+	<DbDetails fcsm="1">
+<Index>modellist_id</Index>
+<DbTable>desoutter.modellist</DbTable>
+<Data>modellist_name,product_id,station_id,created_by,creation_date,last_update_by,last_update_date,modellist_id</Data>
+<Order>modellist_id</Order></DbDetails>
+<OnClick><assign name="product_id[product_id]" expr="%{modellistLst[product_id]}" function="SetSel"/><assign name="station_id[station_id]" expr="%{modellistLst[station_id]}" function="SetSel"/>
+<if cond="'%{modellist_id}'"><SetVisible name="insertmodellist" Visible="0"/><SetVisible name="modifymodellist" Visible="1"/></if>
+</OnClick>
+</ListCtrl>
+</Ctrls></GroupBox>

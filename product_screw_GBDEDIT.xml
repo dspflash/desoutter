@@ -1,0 +1,32 @@
+﻿<GroupBox Name="GBDEDITproduct_screw"><Ctrls>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_product_id"><Ctrls>
+<Label Align="Right" Text="product_id" onload="init" Name="lb_product_id" Size="120,20"/>
+<ComboBox Weight="90" Text="" ToolTip="ttp_product_id" onload="init" Name="product_id" Size="90,100">
+	<DbDetails>
+<Index>product_id</Index>
+<DbTable>desoutter.product</DbTable>
+<Data>product_name,product_id</Data>
+<Where>actived</Where>
+<queryFormat/></DbDetails></ComboBox>
+<MagicCtrl Name="refreshproduct_id" Link="tip:刷新" images=",data/refresh.png" button="type:0" Size="20,20"><OnClick><submit next="product_id"/></OnClick></MagicCtrl>\r\n</Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_screw_pos"><Ctrls>
+<Label Align="Right" Text="screw_pos" Name="lb_screw_pos" Size="120,20"/>
+<TextBox Weight="110" Text="" ToolTip="ttp_screw_pos" Name="screw_pos" Size="110,20"/>
+</Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_pset"><Ctrls>
+<Label Align="Right" Text="pset" Name="lb_pset" Size="120,20"/>
+<TextBox Weight="110" Text="" ToolTip="ttp_pset" Name="pset" Size="110,20"/>
+</Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_psetre"><Ctrls>
+<Label Align="Right" Text="psetre" Name="lb_psetre" Size="120,20"/>
+<TextBox Weight="110" Text="50" ToolTip="ttp_psetre" Name="psetre" Size="110,20"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" overlap="pre" Name="GB_station_id" Visible="false"><Ctrls>
+<Label Align="Right" Text="station_id" overlap="pre" Name="lb_station_id" readonly="true" Size="120,20" Visible="false"/>
+<TextBox Weight="110" Text="" ToolTip="ttp_station_id" overlap="pre" Name="station_id" readonly="true" Size="110,20" Visible="false"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" overlap="pre" Name="GB_screw_id" Visible="false"><Ctrls>
+<Label Align="Right" Text="screw_id" overlap="pre" Name="lb_screw_id" readonly="true" Size="120,20" Visible="false"/>
+<TextBox Weight="110" Text="" ToolTip="ttp_screw_id" overlap="pre" Name="screw_id" readonly="true" Size="110,20" Visible="false"><OnEnChange><if cond="'%{screw_id}'"><SetVisible name="insertproduct_screw" Visible="0"/><SetVisible name="modifyproduct_screw" Visible="1"/><else/><SetVisible name="insertproduct_screw" Visible="1"/><SetVisible name="modifyproduct_screw" Visible="0"/></if></OnEnChange></TextBox>
+</Ctrls></GroupBox>
+</Ctrls></GroupBox>

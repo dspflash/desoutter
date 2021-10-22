@@ -1,0 +1,10 @@
+﻿<GroupBox cols="xs12 sm12 md12 lg12" Name="GBDVstation"><Ctrls>
+<ListCtrl Heading="station_name,100;station_code,100;posco_code,100;desoutter_ip,100;desoutter_port,55;logfilefmt,250;logfilepath,250;created_by,55;creation_date,150;last_update_by,55;last_update_date,150;station_id,55;" loadedclick="0" ToolTip="ttp_station" Name="stationLst" Size="700,450">
+	<DbDetails fcsm="1">
+<Index>station_id</Index>
+<DbTable>desoutter.station</DbTable>
+<Data>station_name,station_code,posco_code,desoutter_ip,desoutter_port,logfilefmt,logfilepath,created_by,creation_date,last_update_by,last_update_date,station_id</Data>
+<Order>station_id</Order></DbDetails>%{}
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="station_ops.xml"/>
+</ListCtrl>
+</Ctrls></GroupBox>

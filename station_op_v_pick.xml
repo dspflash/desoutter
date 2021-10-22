@@ -1,0 +1,22 @@
+﻿<WndTap Name="station_op_v_pick" Text="station_op_v_Pick">
+<var name="searchtmpl"><station_code format="(s.station_code like '%%{opvalue}%')"/><station_name format="(s.station_name like '%%{opvalue}%')"/><desoutter_ip format="(s.desoutter_ip like '%%{opvalue}%')"/><desoutter_port format="(s.desoutter_port like '%%{opvalue}%')"/><logfilefmt format="(s.logfilefmt like '%%{opvalue}%')"/><logfilepath format="(s.logfilepath like '%%{opvalue}%')"/><memo format="(s.memo like '%%{opvalue}%')"/><station_id format="(s.station_id like '%%{opvalue}%')"/><modellist_id format="(s.modellist_id like '%%{opvalue}%')"/><product_id format="(s.product_id like '%%{opvalue}%')"/></var>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\station_op_v.xml"/>
+<Ctrls><GroupBox  Name="GBstation_op_v" id="station_op_v" Text="station_op_v" Size="100,100"><Ctrls>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="station_op_v_Vs.xml"/>
+<BR AutoHeight="1"/><GroupBox  Name="GBOPVstation_op_v" Size="100,20" cols="xs12 sm6 md4"><Ctrls>
+<Button Text="reset" ToolTip="ttp_resetstation_op_v" Name="resetstation_op_v" Size="50,20">	<OnClick>	<submit next="GBDEDITstation_op_v" function="reset"/>	</OnClick>	</Button><TAB/>	
+<Button Text="Search" ToolTip="ttp_gsearchstation_op_v" Name="gsearchstation_op_v" Size="50,20">	<OnClick>	
+<search next="station_op_v_vLst" listed="0" prefixwhere="0" prefixand="0" inputed="1">%{searchtmpl}</search><submit next="GBDEDITstation_op_v" namelist="search" function="search"/>	
+</OnClick></Button><TAB/></Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox Name="GBDVstation_op_v" cols="xs12 sm12 md12 lg12"><Ctrls>
+<ListCtrl Name="station_op_v_vLst" ToolTip="ttp_station_op_v_v" Size="700,450" Heading="station_code,50;station_name,100;desoutter_ip,100;desoutter_port,55;logfilefmt,250;logfilepath,250;memo,640;station_id,55;modellist_id,55;product_id,55;" loadedclick="0">
+	<DbDetails >
+
+<DbTable>desoutter.station_op_v s</DbTable>
+<Data>s.station_code,s.station_name,s.desoutter_ip,s.desoutter_port,s.logfilefmt,s.logfilepath,s.memo,s.station_id,s.modellist_id,s.product_id</Data>
+</DbDetails>
+<OnClick><if cond="%{station_op_v_vLst[%{primary}]}"><DbDetails><Where>%{primary}='%{station_op_v_vLst[%{primary}]}'</Where></DbDetails><submit namelist="DbDetails" next="$parent.%{frmwndctrl}"/><submit function="onok"/></if></OnClick>
+</ListCtrl>
+</Ctrls></GroupBox>
+</Ctrls></GroupBox>
+</Ctrls></WndTap>

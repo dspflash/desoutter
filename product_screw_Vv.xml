@@ -1,0 +1,11 @@
+﻿<GroupBox Name="GBDVproduct_screw" cols="xs12 sm12 md12 lg12"><Ctrls>
+<ListCtrl Name="product_screw_vLst" ToolTip="ttp_product_screw_v" Size="700,450" Heading="product_id,120;screw_pos,20;pset,20;jobid,20;station_id,55;screw_id,55;" loadedclick="0">
+	<DbDetails >;psetre,20
+<Index>screw_id</Index>
+<DbTable>desoutter.product_screw p join desoutter.product p0 on (p0.actived and p.product_id=p0.product_id) left join posco c on c.product_id=p.product_id and p.station_id=c.station_id</DbTable>
+<Data>p0.product_name,p.screw_pos,p.pset,jobid,p.station_id,p.screw_id,posco_id, p.product_id</Data>
+<Order>p.product_id,screw_pos</Order></DbDetails>,p.psetre
+<DbDetails></DbDetails>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="product_screw_ops.xml"/>
+</ListCtrl>
+</Ctrls></GroupBox>

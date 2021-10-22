@@ -1,0 +1,17 @@
+﻿<GroupBox cols="xs12 sm12 md12 lg12" Name="GBDVproduct"><Ctrls>
+<ListCtrl Heading="product_name,250;product_code,100;actived,60;memo,640;product_id,55;created_by,55;creation_date,150;last_update_by,55;last_update_date,150;img_pos_screw,640;" loadedclick="0" ToolTip="ttp_product" Name="productLst" Size="700,450">
+	<DbDetails fcsm="1">
+<Index>product_id</Index>
+<DbTable>desoutter.product</DbTable>
+<Data>product_name,product_code,actived,memo,product_id,created_by,creation_date,last_update_by,last_update_date,img_pos_screw</Data>
+<Order>product_id</Order></DbDetails>%{}
+<operator firstpage="0" nextpage="0" refresh="1" initial="0" prepage="0">
+<op text="modify"><DbDetails><Where>product_id='%{product_vLst[product_id]}'</Where></DbDetails><submit next="$this.product.productLst" namelist="DbDetails"/><assign name="$this.product.frmwndctrl" expr="%{this}"/></op>
+<op text="delete" needconfirm="1"><DbDetails>
+<DbTable>desoutter.product</DbTable>
+<Where>product_id='%{product_vLst[product_id]}'</Where>
+<queryFormat>delete from %{table} where %{where}</queryFormat></DbDetails>
+<submit namelist="DbDetails"/><submit/></op>
+</operator>
+</ListCtrl>
+</Ctrls></GroupBox>

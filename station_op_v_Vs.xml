@@ -1,0 +1,32 @@
+﻿<GroupBox Name="GBDEDITstation_op_v" text="Search" toggle="1"><Ctrls>
+<GroupBox Name="GB_station_code" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_station_code" Size="60,20" Text="station_code" Align="Right"/>
+<TextBox Name="station_code" Size="170,20" Text="" Weight="170" ToolTip="ttp_station_code"></TextBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_station_name" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_station_name" Size="60,20" Text="station_name" Align="Right"/>
+<TextBox Name="station_name" Size="170,20" Text="" Weight="170" ToolTip="ttp_station_name"></TextBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_modellist_name" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_modellist_name" Size="60,20" Text="modellist_name" Align="Right"  onload="init"/>
+<ComboBox Name="modellist_name" Size="150,100" Text="" Weight="150"  ToolTip="ttp_modellist_name"  onload="init">
+	<DbDetails>
+<Index>modellist_id</Index>
+<DbTable>desoutter.station_op_v</DbTable>
+<Data>modellist_name,product_name,product_code,product_id,modellist_id</Data>
+<Where>station_id='%{session.stationid}'</Where>
+<queryFormat></queryFormat></DbDetails></ComboBox>
+<MagicCtrl Name="refreshmodellist_name" Link="tip:刷新" images=",data/refresh.png" button="type:0" Size="20,20"><OnClick><submit next="modellist_name"/></OnClick></MagicCtrl>\r\n</Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox Name="GB_product_code" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_product_code" Size="60,20" Text="product_code" Align="Right"/>
+<TextBox Name="product_code" Size="170,20" Text="" Weight="170" ToolTip="ttp_product_code"></TextBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_product_name" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_product_name" Size="60,20" Text="product_name" Align="Right"/>
+<TextBox Name="product_name" Size="170,20" Text="" Weight="170" ToolTip="ttp_product_name"></TextBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_memo" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_memo" Size="60,20" Text="memo" Align="Right"/>
+<TextBox Name="memo" Size="170,20" Text="" Weight="170" ToolTip="ttp_memo"></TextBox>
+</Ctrls></GroupBox>
+</Ctrls></GroupBox>

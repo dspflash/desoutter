@@ -1,0 +1,17 @@
+﻿<GroupBox cols="xs12 sm12 md12 lg12" Name="GBDVstation_op_v"><Ctrls>
+<ListCtrl Heading="station_code,100;station_name,100;desoutter_ip,100;desoutter_port,55;logfilefmt,240;logfilepath,240;memo,240;station_id,55;modellist_id,55;product_id,55;" loadedclick="0" ToolTip="ttp_station_op_v" Name="station_op_vLst" Size="300,450">
+	<DbDetails fcsm="1">
+
+<DbTable>desoutter.station_op_v</DbTable>
+<Data>station_code,station_name,desoutter_ip,desoutter_port,logfilefmt,logfilepath,memo,station_id,modellist_id,product_id</Data>
+</DbDetails>%{}
+<operator firstpage="0" nextpage="0" refresh="1" initial="0" prepage="0">
+<op text="modify"><DbDetails><Where>%{primary}='%{station_op_v_vLst[%{primary}]}'</Where></DbDetails><submit next="$this.station_op_v.station_op_vLst" namelist="DbDetails"/><assign name="$this.station_op_v.frmwndctrl" expr="%{this}"/></op>
+<op text="delete" needconfirm="1"><DbDetails>
+<DbTable>desoutter.station_op_v</DbTable>
+<Where>%{primary}='%{station_op_v_vLst[%{primary}]}'</Where>
+<queryFormat>delete from %{table} where %{where}</queryFormat></DbDetails>
+<submit namelist="DbDetails"/><submit/></op>
+</operator>
+</ListCtrl>
+</Ctrls></GroupBox>

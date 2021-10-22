@@ -1,0 +1,20 @@
+﻿<GroupBox Name="GBDEDITusers" text="Search" toggle="1"><Ctrls>
+<GroupBox Name="GB_user_name" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_user_name" Size="120,20" Text="user_name" Align="Right"/>
+<TextBox Name="user_name" Size="110,20" Text="" Weight="110" ToolTip="ttp_user_name"></TextBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_user_role" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_user_role" Size="120,20" Text="user_role" Align="Right"  onload="init"/>
+<ComboBox Name="user_role" Size="90,100" Text="" Weight="90"  ToolTip="ttp_user_role"  onload="init">
+	<DbDetails>
+<Index>role_id</Index>
+<DbTable>desoutter.user_role</DbTable>
+<Data>role_name,role_id</Data>
+<Where></Where>
+<queryFormat></queryFormat></DbDetails></ComboBox>
+<MagicCtrl Name="refreshuser_role" Link="tip:刷新" images=",data/refresh.png" button="type:0" Size="20,20"><OnClick><submit next="user_role"/></OnClick></MagicCtrl>\r\n</Ctrls></GroupBox>
+<GroupBox Name="GB_real_name" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_real_name" Size="120,20" Text="real_name" Align="Right"/>
+<TextBox Name="real_name" Size="110,20" Text="" Weight="110" ToolTip="ttp_real_name"></TextBox>
+</Ctrls></GroupBox>
+</Ctrls></GroupBox>

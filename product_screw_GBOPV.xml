@@ -1,0 +1,17 @@
+﻿<GroupBox cols="xs12 sm6 md4" Name="GBOPVproduct_screw" Size="100,100"><Ctrls>
+<Button Text="delete" ToolTip="ttp_deleteproduct_screw" Name="deleteproduct_screw" Size="50,20">
+	<OnClick>
+	<DbDetails fcsm="1">
+<DbTable>desoutter.product_screw</DbTable>
+<Where>screw_id='%{product_screwLst[screw_id]}'</Where>
+<queryFormat>delete from %{table} where %{where}</queryFormat></DbDetails>
+	<submit namelist="DbDetails"/><submit next="searchproduct_screw" function="click"/>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="refresh" ToolTip="ttp_refreshproduct_screw" Name="searchproduct_screw" Size="50,20">
+			  <OnClick><submit next="product_screwLst"/>	</OnClick>
+</Button>
+<TAB/><TAB/><Button Text="firstpage" Name="FPproduct_screwLst" OnClick="(product_screwLst)GetPage(First)" Size="50,20"/>
+<TAB/><Button Text="prepage" Name="PREproduct_screwLst" OnClick="(product_screwLst)GetPage(Pre)" Size="50,20"/>
+<TAB/><Button Text="nextpage" Name="NPproduct_screwLst" OnClick="(product_screwLst)GetPage(Next)" Size="50,20"/>
+</Ctrls></GroupBox>

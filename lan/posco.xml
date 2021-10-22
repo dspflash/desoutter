@@ -1,0 +1,28 @@
+﻿<Language name="posco">
+<Lang name="posco" value="Posco"/>
+<Lang name="TabEditposco" value="Posco Edit"/>
+<Lang name="TabViewposco" value="Posco View"/>
+<Lang name="jobid" value=""/>
+<Lang name="ttp_jobid" value=""/>
+<Lang name="screw_id" value=""/>
+<Lang name="ttp_screw_id" value=""/>
+<Lang name="station_id" value=""/>
+<Lang name="ttp_station_id" value=""/>
+<Lang name="posco_id" value=""/>
+<Lang name="ttp_posco_id" value=""/>
+<Lang name="ttp_operationposco" value=""/>
+<Lang name="ttp_createposco" value=""/>
+<Lang name="ttp_modifyposco" value=""/>
+<Lang name="ttp_resetposco" value=""/>
+<Lang name="ttp_deleteposco" value=""/>
+<Lang name="ttp_refreshposco" value=""/>
+<Lang name="operation" value=""/>
+<Lang name="create" value=""/>
+<Lang name="modify" value=""/>
+<Lang name="reset" value=""/>
+<Lang name="delete" value=""/>
+<Lang name="refresh" value=""/>
+<Lang name="firstpage" value=""/>
+<Lang name="prepage" value=""/>
+<Lang name="nextpage" value=""/>
+</Language>

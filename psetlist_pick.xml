@@ -1,0 +1,22 @@
+﻿<WndTap Name="psetlist_pick" Text="psetlist_Pick">
+<var name="searchtmpl"><pset_no format="(p.pset_no like '%%{opvalue}%')"/><pset_batchsize format="(p.pset_batchsize like '%%{opvalue}%')"/><modellist_id format="p.modellist_id='%{opvalue}'"/><is4redo format="p.is4redo is %{opvalue}"/><created_by format="(p.created_by like '%%{opvalue}%')"/><creation_date format="(p.creation_date between '%{creation_date[datetime]}' and '%{creation_date[datetime2]}')"/><last_update_by format="(p.last_update_by like '%%{opvalue}%')"/><last_update_date format="(p.last_update_date between '%{last_update_date[datetime]}' and '%{last_update_date[datetime2]}')"/><pset_id format="(p.pset_id like '%%{opvalue}%')"/></var>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\psetlist.xml"/>
+<Ctrls><GroupBox  Name="GBpsetlist" id="psetlist" Text="psetlist" Size="100,100"><Ctrls>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="psetlist_Vs.xml"/>
+<BR AutoHeight="1"/><GroupBox  Name="GBOPVpsetlist" Size="100,20" cols="xs12 sm6 md4"><Ctrls>
+<Button Text="reset" ToolTip="ttp_resetpsetlist" Name="resetpsetlist" Size="50,20">	<OnClick>	<submit next="GBDEDITpsetlist" function="reset"/>	</OnClick>	</Button><TAB/>	
+<Button Text="Search" ToolTip="ttp_gsearchpsetlist" Name="gsearchpsetlist" Size="50,20">	<OnClick>	
+<search next="psetlist_vLst" listed="0" prefixwhere="0" prefixand="0" inputed="1">%{searchtmpl}</search><submit next="GBDEDITpsetlist" namelist="search" function="search"/>	
+</OnClick></Button><TAB/></Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox Name="GBDVpsetlist" cols="xs12 sm12 md12 lg12"><Ctrls>
+<ListCtrl Name="psetlist_vLst" ToolTip="ttp_psetlist_v" Size="700,450" Heading="pset_no,55;pset_batchsize,55;modellist_id,120;is4redo,60;created_by,55;creation_date,150;last_update_by,55;last_update_date,150;pset_id,55;" loadedclick="0">
+	<DbDetails >
+<Index>pset_id</Index>
+<DbTable>desoutter.psetlist p left join desoutter.modellist m on p.modellist_id=m.modellist_id</DbTable>
+<Data>p.pset_no,p.pset_batchsize,m.modellist_name modellist_id,p.is4redo,p.created_by,p.creation_date,p.last_update_by,p.last_update_date,p.pset_id</Data>
+<Order>pset_id</Order></DbDetails>
+<OnClick><if cond="%{psetlist_vLst[pset_id]}"><DbDetails><Where>pset_id='%{psetlist_vLst[pset_id]}'</Where></DbDetails><submit namelist="DbDetails" next="$parent.%{frmwndctrl}"/><submit function="onok"/></if></OnClick>
+</ListCtrl>
+</Ctrls></GroupBox>
+</Ctrls></GroupBox>
+</Ctrls></WndTap>

@@ -1,0 +1,32 @@
+﻿<Language name="product_screw">
+<Lang name="product_screw" value="Product_screw"/>
+<Lang name="TabEditproduct_screw" value="Product_screw Edit"/>
+<Lang name="TabViewproduct_screw" value="Product_screw View"/>
+<Lang name="product_id" value=""/>
+<Lang name="ttp_product_id" value=""/>
+<Lang name="screw_pos" value="screw_pos(s)"/>
+<Lang name="ttp_screw_pos" value="pos of screw(create) or poses of screws(create bat)"/>
+<Lang name="pset" value=""/>
+<Lang name="ttp_pset" value="PSet for tighten"/>
+<Lang name="psetre" value=""/>
+<Lang name="ttp_psetre" value="PSet for Losen(before retighten)"/>
+<Lang name="station_id" value=""/>
+<Lang name="ttp_station_id" value=""/>
+<Lang name="screw_id" value=""/>
+<Lang name="ttp_screw_id" value=""/>
+<Lang name="ttp_operationproduct_screw" value=""/>
+<Lang name="ttp_createproduct_screw" value=""/>
+<Lang name="ttp_modifyproduct_screw" value=""/>
+<Lang name="ttp_resetproduct_screw" value=""/>
+<Lang name="ttp_deleteproduct_screw" value=""/>
+<Lang name="ttp_refreshproduct_screw" value=""/>
+<Lang name="operation" value=""/>
+<Lang name="create" value=""/>
+<Lang name="modify" value=""/>
+<Lang name="reset" value=""/>
+<Lang name="delete" value=""/>
+<Lang name="refresh" value=""/>
+<Lang name="firstpage" value=""/>
+<Lang name="prepage" value=""/>
+<Lang name="nextpage" value=""/>
+</Language>

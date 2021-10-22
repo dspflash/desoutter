@@ -1,0 +1,44 @@
+﻿<Language name="users">
+<Lang name="users" value="Users"/>
+<Lang name="users_v" value="Users"/>
+<Lang name="user_name" value="User Name"/>
+<Lang name="real_name" value="Real Name"/>
+<Lang name="user_role" value="User Role"/>
+<Lang name="TabEditusers" value="Users Edit"/>
+<Lang name="TabViewusers" value="Users View"/>
+<Lang name="user_name" value=""/>
+<Lang name="ttp_user_name" value="用户名"/>
+<Lang name="user_pass" value="User Password"/>
+<Lang name="ttp_user_pass" value="密码"/>
+<Lang name="user_role" value=""/>
+<Lang name="ttp_user_role" value="类型"/>
+<Lang name="real_name" value=""/>
+<Lang name="ttp_real_name" value="真实名字"/>
+<Lang name="memo" value="Memo"/>
+<Lang name="ttp_memo" value="Memo"/>
+<Lang name="user_id" value=""/>
+<Lang name="ttp_user_id" value=""/>
+<Lang name="created_by" value=""/>
+<Lang name="ttp_created_by" value=""/>
+<Lang name="creation_date" value=""/>
+<Lang name="ttp_creation_date" value=""/>
+<Lang name="last_update_by" value=""/>
+<Lang name="ttp_last_update_by" value=""/>
+<Lang name="last_update_date" value=""/>
+<Lang name="ttp_last_update_date" value=""/>
+<Lang name="ttp_operationusers" value=""/>
+<Lang name="ttp_createusers" value=""/>
+<Lang name="ttp_modifyusers" value=""/>
+<Lang name="ttp_resetusers" value=""/>
+<Lang name="ttp_deleteusers" value=""/>
+<Lang name="ttp_refreshusers" value=""/>
+<Lang name="operation" value=""/>
+<Lang name="create" value=""/>
+<Lang name="modify" value=""/>
+<Lang name="reset" value=""/>
+<Lang name="delete" value=""/>
+<Lang name="refresh" value=""/>
+<Lang name="firstpage" value=""/>
+<Lang name="prepage" value=""/>
+<Lang name="nextpage" value=""/>
+</Language>

@@ -1,0 +1,35 @@
+﻿<Language name="user_role">
+<Lang name="user_role" value="User_role"/>
+<Lang name="user_role_v" value="User_role"/>
+<Lang name="TabEdituser_role" value="User_role Edit"/>
+<Lang name="TabViewuser_role" value="User_role View"/>
+<Lang name="layout" value="Layout"/>
+<Lang name="ttp_layout" value="菜单id"/>
+<Lang name="role_name" value="Role Name"/>
+<Lang name="ttp_role_name" value="角色名"/>
+<Lang name="created_by" value="Created By"/>
+<Lang name="ttp_created_by" value="Created By"/>
+<Lang name="creation_date" value="Creation Date"/>
+<Lang name="ttp_creation_date" value="Creation Date"/>
+<Lang name="last_update_by" value="Update By"/>
+<Lang name="ttp_last_update_by" value="Update By"/>
+<Lang name="last_update_date" value="Update Date"/>
+<Lang name="ttp_last_update_date" value="Update Date"/>
+<Lang name="role_id" value="Role Id"/>
+<Lang name="ttp_role_id" value="角色id"/>
+<Lang name="ttp_operationuser_role" value=""/>
+<Lang name="ttp_createuser_role" value=""/>
+<Lang name="ttp_modifyuser_role" value=""/>
+<Lang name="ttp_resetuser_role" value=""/>
+<Lang name="ttp_deleteuser_role" value=""/>
+<Lang name="ttp_refreshuser_role" value=""/>
+<Lang name="operation" value=""/>
+<Lang name="create" value=""/>
+<Lang name="modify" value=""/>
+<Lang name="reset" value=""/>
+<Lang name="delete" value=""/>
+<Lang name="refresh" value=""/>
+<Lang name="firstpage" value=""/>
+<Lang name="prepage" value=""/>
+<Lang name="nextpage" value=""/>
+</Language>

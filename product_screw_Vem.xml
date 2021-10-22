@@ -1,0 +1,13 @@
+﻿<WndTap Name="product_screw" Text="product_screw" Ver="2">
+<var name="refreshAfterEdit" expr="2"/>
+<var name="dataRequired" expr="product_id[product_id],screw_pos,pset,psetre,station_id"/>
+<var name="dataRequireless" expr=""/>
+<xi:include href="lan\product_screw.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+<Ctrls>
+<GroupBox  Name="GBproduct_screw" id="product_screw" Text="product_screw" Size="100,100"><Ctrls>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="product_screw_GBDEDIT.xml"/>
+<BR AutoHeight="1"/><xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="product_screw_GBOPEm.xml"/>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="product_screw_Vh.xml"/></Ctrls></GroupBox></Ctrls>
+	<OnChanged></OnChanged>
+	<OnActivate><SetVisible name="insertproduct_screw" Visible="1"/><SetVisible name="modifyproduct_screw" Visible="0"/></OnActivate>
+</WndTap>

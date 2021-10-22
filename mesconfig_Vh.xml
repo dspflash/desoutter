@@ -1,0 +1,12 @@
+﻿<GroupBox Name="GBDVmesconfig" cols="xs12 sm12 md12 lg12" visible="0"><Ctrls>
+<ListCtrl Name="mesconfigLst" ToolTip="ttp_mesconfig" Size="70,20" visible="0" loadedclick="1">
+	<DbDetails fcsm="1">
+<Index>mes_id</Index>
+<DbTable>desoutter.mesconfig</DbTable>
+<Data>mesapi,customer,assemblyrevision,testername,testprocess,assemblynumber,division,mes_id</Data>
+<Order>mes_id</Order></DbDetails>
+<OnClick>
+<if cond="'%{mes_id}'"><SetVisible name="insertmesconfig" Visible="0"/><SetVisible name="modifymesconfig" Visible="1"/></if>
+</OnClick>
+</ListCtrl>
+</Ctrls></GroupBox>

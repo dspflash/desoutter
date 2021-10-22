@@ -1,0 +1,10 @@
+﻿<GroupBox cols="xs12 sm6 md4" Name="GBOPVmodellist"><Ctrls>
+<TAB/><Button Text="initial" ToolTip="ttp_initial" Name="initialmodellist" Size="50,20">
+<OnClick><submit next="modellist_vLst" function="initial"/><submit next="records_modellist" function="initial"/></OnClick></Button>
+<TAB/><Button Text="firstpage" Name="FPmodellist_vLst" Size="50,20">
+<OnClick><submit next="modellist_vLst" function="GetPage(first)"/><submit next="records_modellist"/></OnClick></Button>
+<Button Text="prepage" Name="PREmodellist_vLst" Size="50,20">
+<OnClick><submit next="modellist_vLst" function="GetPage(Pre)"/></OnClick></Button>
+<Button Text="nextpage" Name="NPmodellist_vLst" Size="50,20">
+<OnClick><submit next="modellist_vLst" function="GetPage(Next)"/></OnClick></Button>
+</Ctrls></GroupBox>

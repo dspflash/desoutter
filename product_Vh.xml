@@ -1,0 +1,12 @@
+﻿<GroupBox Name="GBDVproduct" cols="xs12 sm12 md12 lg12" visible="0"><Ctrls>
+<ListCtrl Name="productLst" ToolTip="ttp_product" Size="70,20" visible="0" loadedclick="1">
+	<DbDetails fcsm="1">
+<Index>product_id</Index>
+<DbTable>desoutter.product</DbTable>
+<Data>product_name,product_code,actived,memo,product_id,created_by,creation_date,last_update_by,last_update_date,img_pos_screw</Data>
+<Order>product_id</Order></DbDetails>
+<OnClick>
+<if cond="'%{product_id}'"><SetVisible name="insertproduct" Visible="0"/><SetVisible name="modifyproduct" Visible="1"/></if>
+</OnClick>
+</ListCtrl>
+</Ctrls></GroupBox>

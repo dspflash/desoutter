@@ -1,0 +1,10 @@
+﻿<GroupBox cols="xs12 sm6 md4" Name="GBOPVstation_op_v"><Ctrls>
+<TAB/><Button Text="initial" ToolTip="ttp_initial" Name="initialstation_op_v" Size="50,20">
+<OnClick><submit next="station_op_v_vLst" function="initial"/><submit next="records_station_op_v" function="initial"/></OnClick></Button>
+<TAB/><Button Text="firstpage" Name="FPstation_op_v_vLst" Size="50,20">
+<OnClick><submit next="station_op_v_vLst" function="GetPage(first)"/><submit next="records_station_op_v"/></OnClick></Button>
+<Button Text="prepage" Name="PREstation_op_v_vLst" Size="50,20">
+<OnClick><submit next="station_op_v_vLst" function="GetPage(Pre)"/></OnClick></Button>
+<Button Text="nextpage" Name="NPstation_op_v_vLst" Size="50,20">
+<OnClick><submit next="station_op_v_vLst" function="GetPage(Next)"/></OnClick></Button>
+</Ctrls></GroupBox>

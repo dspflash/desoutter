@@ -1,0 +1,23 @@
+﻿<WndTap Name="station_v" Text="station_v">
+<WndTaps>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="station_Vem.xml" popup="1"/>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="product_screw_Vem.xml" popup="1"/>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="posco_Ve.xml" popup="1"/>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="mesconfig_Ve.xml" popup="1"/>
+</WndTaps>
+<var name="searchtmpl"><station_name format="(s.station_name like '%%{opvalue}%')"/><station_code format="(s.station_code like '%%{opvalue}%')"/><desoutter_ip format="(s.desoutter_ip like '%%{opvalue}%')"/><desoutter_port format="(s.desoutter_port like '%%{opvalue}%')"/><logfilefmt format="(s.logfilefmt like '%%{opvalue}%')"/><logfilepath format="(s.logfilepath like '%%{opvalue}%')"/><created_by format="(s.created_by like '%%{opvalue}%')"/><creation_date format="(s.creation_date between '%{creation_date[datetime]}' and '%{creation_date[datetime2]}')"/><last_update_by format="(s.last_update_by like '%%{opvalue}%')"/><last_update_date format="(s.last_update_date between '%{last_update_date[datetime]}' and '%{last_update_date[datetime2]}')"/><station_id format="(s.station_id like '%%{opvalue}%')"/></var>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\station.xml"/>
+<Ctrls><GroupBox  Name="GBstation" id="station" Text="station" Size="100,100"><Ctrls>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="station_Vs.xml"/>
+<BR AutoHeight="1"/><GroupBox  Name="GBOPVstation" Size="100,20" cols="xs12 sm6 md4"><Ctrls>
+<Button Text="addone" ToolTip="ttp_addone" Name="addone" Size="50,20">	<OnClick><submit next="$this.station.GBDEDITstation" function="reset"/><assign name="$this.station.frmwndctrl" expr="%{$this.station_vLst}"/></OnClick>	</Button><TAB/>	
+<Button Text="reset" ToolTip="ttp_resetstation" Name="resetstation" Size="50,20">	<OnClick>	<submit next="GBDEDITstation" function="reset"/>	</OnClick>	</Button><TAB/>	
+<Button Text="Search" ToolTip="ttp_gsearchstation" Name="gsearchstation" Size="50,20">	<OnClick>	
+<search next="station_vLst" listed="0" prefixwhere="0" prefixand="0" inputed="1">%{searchtmpl}</search><submit next="GBDEDITstation" namelist="search" function="search"/>	
+<search next="records_station" listed="0" prefixwhere="1" prefixand="0"  inputed="1">%{searchtmpl}</search><submit next="GBDEDITstation" namelist="search" function="search"/>	
+</OnClick></Button><TAB/></Ctrls></GroupBox>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="station_Vpg.xml"/>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="station_Vpgop.xml"/>
+<BR AutoHeight="1"/><xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="station_Vv.xml"/>
+</Ctrls></GroupBox>
+</Ctrls></WndTap>

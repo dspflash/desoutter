@@ -1,0 +1,18 @@
+﻿<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GBPGmodellist"><Ctrls>
+<Label Align="Right" Text="Records" Name="lb_Records" Size="60,20"/>
+<TextBox Weight="30" ToolTip="ttp_records" Name="records_modellist" Size="40,20" OnLoad="init" readonly="1">
+	<DbDetails fcsm="1">
+<Index>modellist_id</Index>
+<DbTable>desoutter.modellist m left join desoutter.product p on m.product_id=p.product_id left join desoutter.station s on m.station_id=s.station_id</DbTable>
+<Data>count(*) records</Data>
+<Order>modellist_id</Order><Queryformat>select %{data} from (select m.modellist_id from %{dbtable} %{where} GROUP BY m.modellist_id  ORDER BY m.modellist_id) t</Queryformat></DbDetails>
+<OnEnchange>
+<assign name="pgs_modellist" expr="js(Math.ceil(%{records_modellist}/%{modellist_vLst[countsperpage]}))"/>
+<assign name="pgscb_modellist" expr="js('1~'+Math.ceil(%{records_modellist}/%{modellist_vLst[countsperpage]}))" function="setitems"/>
+</OnEnchange>
+</TextBox>
+<!--ComboBox Weight="60" ToolTip="ttp_pgs" Name="pgscb_modellist" Size="60,20"><OnSelEndOK><submit next="modellist_vLst" function="GetPage(%{pgscb_modellist}-1)"/></OnSelEndOK></ComboBox-->
+<TextBox Weight="30" ToolTip="ttp_pgs" Name="pgs_modellist" Size="30,20" readonly="1"/>
+<TextBox Weight="30" ToolTip="ttp_pgcur" Name="pgcur_modellist" Size="30,20"/>
+<Button Text="go2Page" Name="go2pagemodellist_vLst" Size="50,20"><OnClick><submit next="modellist_vLst" function="GetPage(%{pgcur_modellist}-1)"/></OnClick></Button>
+</Ctrls></GroupBox>

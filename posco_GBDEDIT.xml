@@ -1,0 +1,24 @@
+﻿<GroupBox Name="GBDEDITposco"><Ctrls>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_jobid"><Ctrls>
+<Label Align="Right" Text="jobid" Name="lb_jobid" Size="60,20"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_jobid" Name="jobid" Size="170,20"/>
+</Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_product_id"><Ctrls>
+<Label Align="Right" Text="product_id" onload="init" Name="lb_product_id" Size="60,20"/>
+<ComboBox Weight="150" Text="" ToolTip="ttp_product_id" onload="init" Name="product_id" Size="150,100">
+	<DbDetails>
+<Index>product_id</Index>
+<DbTable>desoutter.product</DbTable>
+<Data>product_name,product_id</Data>
+<Where/>
+<queryFormat/></DbDetails></ComboBox>
+<MagicCtrl Name="refreshproduct_id" Link="tip:刷新" images=",data/refresh.png" button="type:0" Size="20,20"><OnClick><submit next="product_id"/></OnClick></MagicCtrl>\r\n</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" overlap="pre" Name="GB_station_id" Visible="false"><Ctrls>
+<Label Align="Right" Text="station_id" overlap="pre" Name="lb_station_id" readonly="true" Size="60,20" Visible="false"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_station_id" overlap="pre" Name="station_id" readonly="true" Size="170,20" Visible="false"><OnEnChange><submit next="screw_id"/></OnEnChange></TextBox>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" overlap="pre" Name="GB_posco_id" Visible="false"><Ctrls>
+<Label Align="Right" Text="posco_id" overlap="pre" Name="lb_posco_id" readonly="true" Size="60,20" Visible="false"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_posco_id" overlap="pre" Name="posco_id" readonly="true" Size="170,20" Visible="false"><OnEnChange><if cond="'%{posco_id}'"><SetVisible name="insertposco" Visible="0"/><SetVisible name="modifyposco" Visible="1"/><else/><SetVisible name="insertposco" Visible="1"/><SetVisible name="modifyposco" Visible="0"/></if></OnEnChange></TextBox>
+</Ctrls></GroupBox>
+</Ctrls></GroupBox>

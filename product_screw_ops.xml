@@ -1,0 +1,14 @@
+﻿<operator refresh="1" initial="0" firstpage="0" prepage="0" nextpage="0">
+<op text="addone" mustselected="0"><if cond="!%{station_id}"><alert expr="station_id is Empty!"/><else/><submit next="$parent.product_screw.GBDEDITproduct_screw" function="reset"/><assign name="$parent.product_screw.station_id" expr="%{station_id}"/><assign name="$parent.product_screw.frmwndctrl" expr="%{this}"/></if></op>
+<op text="modify"><DbDetails><Where>screw_id='%{product_screw_vLst[screw_id]}'</Where></DbDetails><submit namelist="DbDetails" next="$parent.product_screw.product_screwLst"/><assign name="$parent.product_screw.frmwndctrl" expr="%{this}"/></op>
+<op text="posco" mustselected="1"><if cond="!%{product_screw_vLst[posco_id]}"><submit next="$parent.posco.GBDEDITposco" function="reset"/><assign name="$parent.posco.station_id" expr="%{station_id}"/><assign name="$parent.posco.product_id" expr="%{product_screw_vLst[product_id]}"/><else/><DbDetails><Where>posco_id='%{product_screw_vLst[posco_id]}'</Where></DbDetails><submit next="$parent.posco.poscoLst" namelist="DbDetails"/></if><assign name="$parent.posco.frmwndctrl" expr="%{this}"/></op>
+<op text="Posco_delete" needconfirm="1"><DbDetails>
+<DbTable>desoutter.posco</DbTable>
+<Where>posco_id='%{product_screw_vLst[posco_id]}'</Where>
+<queryFormat>delete from %{table} where %{where}</queryFormat></DbDetails>
+<submit namelist="DbDetails"/><submit/><submit/></op>
+<op text="delete" needconfirm="1"><DbDetails>
+<DbTable>desoutter.product_screw</DbTable>
+<Where>screw_id='%{product_screw_vLst[screw_id]}'</Where>
+<queryFormat>delete from %{table} where %{where}</queryFormat></DbDetails>
+<submit namelist="DbDetails"/><submit/></op></operator>

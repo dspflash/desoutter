@@ -1,0 +1,37 @@
+﻿<GroupBox cols="xs12 sm6 md4" Name="GBOPEproduct" Size="100,100"><Ctrls>
+<Button sqlpkinsert="product_id" Text="create" ToolTip="ttp_createproduct" Name="insertproduct" Size="50,20">
+<OnClick>
+<DbDetails mode="insert" fcsm="1">
+<DbTable>desoutter.product</DbTable>
+<Required>%{dataRequired}</Required>
+<Requireless>%{dataRequireless}</Requireless>
+<Data>product_name,product_code,actived,memo</Data>
+<DataEx>created_by,creation_date,last_update_by,last_update_date;'%{user_id}',now(),'%{user_id}',now()</DataEx>
+<queryFormat>insert into %{table} %{data}</queryFormat></DbDetails>
+<submit namelist="DbDetails"/><if cond="!%{insertproduct[broke]}"><if cond="%{refreshAfterEdit}==1"><submit next="productLst" delay="1000"/><elseif cond="%{refreshAfterEdit}==2"/><if cond="1"><if cond="'%{frmwndctrl}'"><submit next="%{frmwndctrl}" delay="1000"/><else/><submit next="$parent.product_vLst" delay="1000"/></if></if></if></if>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="modify" ToolTip="ttp_modifyproduct" Name="modifyproduct" Size="50,20">
+<OnClick>
+<DbDetails mode="update" fcsm="1">
+<DbTable>desoutter.product</DbTable>
+<Required>%{dataRequired}</Required>
+<Requireless>%{dataRequireless}</Requireless>
+<Data>product_name,product_code,actived,memo</Data>
+<DataEx>last_update_by,last_update_date;'%{user_id}',now()</DataEx>
+<Where>product_id='%{product_id}'</Where>
+<queryFormat>update %{table} set %{data} where %{where}</queryFormat></DbDetails>
+<submit namelist="DbDetails"/><if cond="!%{modifyproduct[broke]}"><if cond="%{refreshAfterEdit}==1"><submit next="productLst" delay="1000"/><elseif cond="%{refreshAfterEdit}==2"/><if cond="'%{frmwndctrl}'"><submit next="%{frmwndctrl}" delay="1000"/><else/><submit next="$parent.product_vLst" delay="1000"/></if></if></if>
+	</OnClick>
+</Button><TAB/>
+<Button Text="reset" ToolTip="ttp_resetproduct" Name="resetproduct" Size="50,20">
+<OnClick>
+<submit next="GBDEDITproduct" function="reset"/>
+	</OnClick>
+</Button><TAB/>
+<Button Text="Search" ToolTip="ttp_gsearchproduct" Name="gsearchproduct" Size="50,20" visible="false">
+<OnClick>
+<search next="productLst" listed="0" prefixwhere="0" prefixand="0" inputed="1"/><submit next="GBDEDITproduct" namelist="search" function="search"/>
+	</OnClick>
+</Button><TAB/>
+</Ctrls></GroupBox>

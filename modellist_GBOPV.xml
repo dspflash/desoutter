@@ -1,0 +1,17 @@
+﻿<GroupBox cols="xs12 sm6 md4" Name="GBOPVmodellist" Size="100,100"><Ctrls>
+<Button Text="delete" ToolTip="ttp_deletemodellist" Name="deletemodellist" Size="50,20">
+	<OnClick>
+	<DbDetails fcsm="1">
+<DbTable>desoutter.modellist</DbTable>
+<Where>modellist_id='%{modellistLst[modellist_id]}'</Where>
+<queryFormat>delete from %{table} where %{where}</queryFormat></DbDetails>
+	<submit namelist="DbDetails"/><submit next="searchmodellist" function="click"/>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="refresh" ToolTip="ttp_refreshmodellist" Name="searchmodellist" Size="50,20">
+			  <OnClick><submit next="modellistLst"/>	</OnClick>
+</Button>
+<TAB/><TAB/><Button Text="firstpage" Name="FPmodellistLst" OnClick="(modellistLst)GetPage(First)" Size="50,20"/>
+<TAB/><Button Text="prepage" Name="PREmodellistLst" OnClick="(modellistLst)GetPage(Pre)" Size="50,20"/>
+<TAB/><Button Text="nextpage" Name="NPmodellistLst" OnClick="(modellistLst)GetPage(Next)" Size="50,20"/>
+</Ctrls></GroupBox>

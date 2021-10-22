@@ -1,0 +1,329 @@
+﻿<WndTap Name="station_op_v" Text="station_op_v" Ver="2">
+<var name="posco_rs_old" expr="0"/>
+<WndTaps>YU9894923012100410003818643410
+<WndTap Name="mesapi" Text="MES" popup="1"><Ctrls>
+<GroupBox  Name="gbwb" id="gbwb" Text="wb" Size="100,100"><Ctrls>
+	<WebBrowser Name="meswb" Studio="0" Size="700,600"></WebBrowser></Ctrls></GroupBox>
+</Ctrls></WndTap>
+<WndTap Name="qrscan" Text="QR SCAN" popup="1">
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\product.xml"/>
+	<Ctrls><GroupBox Name="GBScanData"><Ctrls>
+		<!--GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_responsible"><Ctrls>
+		<Label Align="Right" Text="responsible" onload="init" Name="lb_responsible" Size="60,20"/>
+		<ComboBox Weight="170" Text="" ToolTip="ttp_responsible" onload="init" selectedIndex="0" Name="responsible" Size="170,100">
+			<DbDetails>
+		<Index>id</Index>
+		<DbTable>vtigercrm6.users_v</DbTable>
+		<Data>fullname,id</Data>
+		<Where/>
+		<queryFormat/></DbDetails></ComboBox>
+		</Ctrls></GroupBox-->
+		<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_projectid"><Ctrls>http://10.114.21.145/JabilWebService/GetInfoFromMES.asmx/TIS
+		<Label Align="Right" Text="Scan Data" Name="lb_ScanData" readonly="true" Size="60,20"/>P1105874-00-F:SJBL182980002550
+		<TextBox Weight="170" Text="" ToolTip="ttp_projectid" Name="scandata" readonly0="true" autoselall="true" Size="170,20"><OnEnChange><if cond="('%{scandata}').length==30">
+<assign name="$parent.product_code" expr="js('%{scandata}'.substr(2,7))"/>substr(0,'%{scandata}'.indexOf(':'))
+<assign name="$parent.serialnumber" expr="%{scandata}"/>substr('%{scandata}'.indexOf(':')+1)
+<!--EvalTbl rules="" table="scandatarule">
+<rules><xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="rule/scandatarule.xml"/></rules>
+<inputs scandata="%{scandata}" data1s="1" data1e="6" data2s="" data2e=""/>
+<outputs data1="$parent.product_code" data2="$parent.serialnumber"/></EvalTbl-->
+<submit function="onok"/>
+</if></OnEnChange></TextBox>
+		</Ctrls></GroupBox>
+		<!--BR AutoHeight="1"/><GroupBox cols="xs12 sm6 md4" Name="GBOPEvtiger_project_tpl_task" Size="100,100"><Ctrls>
+		<Button Text="SetResponsible" ToolTip="ttp_SetResponsible" Name="SetResponsibleBtn" Size="100,20">
+		<OnClick>
+		<alert expr="%{scandata}"/></OnClick>
+			</Button><TAB/>
+		</Ctrls></GroupBox-->
+	</Ctrls></GroupBox>
+</Ctrls></WndTap>
+</WndTaps>
+<var name="refreshAfterEdit" expr="2"/>
+<var name="dataRequired" expr=""/>
+<var name="dataRequireless" expr=""/>
+<xi:include href="lan\station_op_v.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+<xi:include href="lan\station.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\product.xml"/>
+<Ctrls>
+<GroupBox><Ctrls>
+<GroupBox Name="Operation" Text="Station Operation" feature="tab"><Ctrls>
+<GroupBox Name="GBstation_op_v1" id="station_op_v1" Text="station_op_v1" Size="100,100"><Ctrls>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="station_op_GBDEDIT.xml"/>
+<BR AutoHeight="1"/>
+<GroupBox Name="GBDVstation_op_v" cols="xs12 sm6 md4"><Ctrls>
+<ListCtrl Name="station_tightening_rs" ToolTip="ttp_station_tightening_rs" Size="700,150">
+	<DbDetails>
+		<queryFormat>select tighteningid,pset,tighteningstatus,torquemin,torquemax,torque,torquestatus,anglemin,anglemax,angle,anglestatus,timestamp from iot where topic='devices/%{station_code}/sys/61/detail' order by tighteningid desc limit 0,10</queryFormat>
+	</DbDetails>
+	<!--OnClick><assign name="curve_chart" expr="%{station_tightening_rs[csv]}"/></OnClick-->
+</ListCtrl>
+</Ctrls></GroupBox>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="station_op_Vh.xml"/></Ctrls></GroupBox>
+
+<GroupBox Name="station_op_v2" id="station_op_v2" Text="station_op_v2"><Ctrls>
+<GroupBox cols="xs12 sm6 md4" Name="GBOPEstation_op_v" Size="100,100"><Ctrls>
+<Button Name="mqtt_publish_pset" Size="100,20" Text="SendPSet" visible="false" tooltip="" Weight="100"><OnClick><mqtt function="publish" expr="%{psetlist[pset_no]}" topic="devices/%{station_code}/psetdo"/></OnClick></Button>
+<Button Name="mqtt_publish_entoolx" Size="100,20" Text="EnableTool" visible="false" tooltip="" Weight="100"><OnClick>
+<assign name="controller_tighten_rs" expr=""/>
+<mqtt function="publish" expr="" topic="devices/%{station_code}/entool"/></OnClick></Button>
+<Button Name="mqtt_publish_distoolx" Size="100,20" Text="DisableTool" visible="false" tooltip="" Weight="100"><OnClick><mqtt function="publish" expr="" topic="devices/%{station_code}/distool"/></OnClick></Button>
+<Button Name="mqtt_publish_posco_tighten" Size="100,20" Text="PoscoTighten" visible="false" tooltip="" Weight="100"><OnClick>
+<if cond="'%{prod_piece_screw[screw_pos]}'">
+	<mqtt function="publish" expr="%{prod_piece_screw[screw_pos]}" topic="devices/%{station_code}/acqer_//screwindex"/>
+	<if cond="'%{modellist_name[jobid]}'"><null/>
+		<!--if cond="%{prod_piece_screw[screw_pos]}!=1">
+			<mqtt function="publish" expr="1" topic="devices/%{posco_code}/tightenok"/>
+		</if-->
+	<elseif cond="'%{prod_piece_screw[pset]}'"/>
+		<if cond="(!('%{prod_piece_screw[pset]}'=='%{controller_pset}')||(%{prod_piece_screw[screw_pos]}==1))">
+		<mqtt function="publish" expr="15" topic="devices/%{station_code}/psetdo"/>
+		<mqtt function="publish" expr="0" topic="devices/%{station_code}/poscostart"/>
+		<mqtt function="publish" expr="1" topic="devices/%{station_code}/poscoreset"/>
+		<mqtt function="publish" delay="2000" expr="0" topic="devices/%{station_code}/poscoreset"/>
+		<mqtt function="publish" delay="2000" expr="1" topic="devices/%{station_code}/poscostart"/>
+		<mqtt function="publish" delay="2000" expr="0" topic="devices/%{station_code}/poscostart"/>
+		<mqtt function="publish" expr="%{prod_piece_screw[pset]}" topic="devices/%{station_code}/psetdo"/>
+		</if>
+		<submit next="mqtt_publish_entool" function="click"/>
+	</if>
+<else/>
+	<mqtt function="publish" expr="0" topic="devices/%{posco_code}/start"/>
+	<mqtt function="publish" expr="0" topic="devices/%{posco_code}/jobs0"/>
+	<mqtt function="publish" expr="0" topic="devices/%{posco_code}/jobs1"/>
+	<mqtt function="publish" expr="0" topic="devices/%{posco_code}/jobs2"/>
+	<DbDetails><queryFormat>update product_screw set done=0 WHERE (station_id,product_id)=('%{stationid}',%{modellist_name[product_id]})</queryFormat></DbDetails><submit namelist="DbDetails"/><submit next="prod_piece_screw" function="resetcontent"/>
+	<assign name="status_memo" expr="Tighten Finished!"/>
+	<assign name="product_code" expr=""/>
+	<assign name="serialnumber" expr=""/>
+	<mqtt function="publish" expr="" topic="devices/%{station_code}/acqer_//csvfile4mid61" delay="1000"/>
+	<mqtt function="publish" expr="" topic="devices/%{station_code}/acqer_//csvfile4mid7410"/>
+	<mqtt function="publish" expr="1" topic="devices/%{posco_code}/reset"/>
+	<assign name="$this.qrscan.scandata" expr=""/>
+	<setfocus name="$this.qrscan.scandata" expr="1" delay="500"/>
+</if></OnClick></Button>
+<!--Button Name="mqtt_publish_ResetPosco" Size="100,20" Text="ResetPosco" tooltip="" Weight="100">
+<OnClick><DbDetails><queryFormat>update product_screw set done=0 WHERE (station_id,product_id)=('%{stationid}',%{modellist_name[product_id]})</queryFormat></DbDetails><submit namelist="DbDetails"/><submit next="prod_piece_screw" function="resetcontent"/>
+<mqtt function="publish" expr="1" topic="devices/%{posco_code}/reset"/>
+<mqtt function="publish" expr="0" topic="devices/%{posco_code}/start"/>
+<mqtt function="publish" expr="0" topic="devices/%{posco_code}/tightenok"/>
+<mqtt function="publish" expr="0" topic="devices/%{posco_code}/jobs0"/>
+<mqtt function="publish" expr="0" topic="devices/%{posco_code}/jobs1"/>
+<mqtt function="publish" expr="0" topic="devices/%{posco_code}/jobs2"/>
+</OnClick></Button-->
+<Button Name="subscribe_station" Size="100,20" Text="subscribe station" visible="false" tooltip="订阅" Weight="100"><OnClick>
+<if cond="'%{station_code}'"><mqtt next="controller_connect" function="subscribe" expr="devices/%{station_code}/sys/1"/>
+<mqtt next="controller_psetsub" function="subscribe" expr="devices/%{station_code}/sys/14"/>
+<mqtt next="controller_tightensub" function="subscribe" expr="devices/%{station_code}/sys/60"/>
+<mqtt next="controller_cyclesub" function="subscribe" expr="devices/%{station_code}/sys/7402"/>
+<mqtt next="controller_curvesub" function="subscribe" expr="devices/%{station_code}/sys/7408"/>
+<mqtt next="controller_pset" function="subscribe" expr="devices/%{station_code}/sys/15"/>
+<mqtt next="controller_tighten_rs" function="subscribe" expr="devices/%{station_code}/sys/61"/>
+<!--mqtt next="station_tightening_rs" function="subscribe" expr="devices/%{station_code}/sys/61/detail"/>
+<mqtt next="curve_chart" function="subscribe" expr="devices/%{station_code}/sys/7410/detail"/-->
+<else/><alert expr="%{lb_station_code} is empty"/></if>
+</OnClick></Button>
+<Button Name="subscribe_posco" Size="100,20" Text="subscribe posco" visible="false" tooltip="订阅" Weight="100"><OnClick>
+<if cond="'%{posco_code}'"><mqtt next="controller_posco_rs" function="subscribe" expr="devices/%{posco_code}/rs"/>
+<mqtt next="controller_posco_conn" function="subscribe" expr="devices/%{posco_code}/sys/conn"/>
+<else/><alert expr="%{lb_posco_code} is empty"/></if>
+</OnClick></Button>
+</Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox Name="GBOPEstation_op_v" Size="100,100"><Ctrls>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_controller_connect"><Ctrls>
+<Label Align="Right" Text="controller connect" Name="lb_controller_connect" readonly="true" Size="160,20"/>
+<MagicCtrl Weight="70" Text="" ToolTip="ttp_controller_connect" Name="controller_connect" readonly="true" Size="70,20">
+<imgmap><map name="0" value="layout/ucin/desoutter,off.png"/><map name="1" value="layout/ucin/desoutter,on.png"/></imgmap></MagicCtrl>
+</Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_controller_psetsub"><Ctrls>
+<Label Align="Right" Text="controller psetsub" Name="lb_controller_psetsub" readonly="true" Size="160,20"/>
+<MagicCtrl Weight="70" Text="" ToolTip="ttp_controller_psetsub" Name="controller_psetsub" readonly="true" Size="70,20">
+<imgmap><map name="0" value="layout/ucin/desoutter,off.png"/><map name="1" value="layout/ucin/desoutter,on.png"/></imgmap></MagicCtrl>
+</Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_controller_tightensub"><Ctrls>
+<Label Align="Right" Text="controller tightensub" Name="lb_controller_tightensub" readonly="true" Size="160,20"/>
+<MagicCtrl Weight="70" Text="" ToolTip="ttp_controller_tightensub" Name="controller_tightensub" readonly="true" Size="70,20">
+<imgmap><map name="0" value="layout/ucin/desoutter,off.png"/><map name="1" value="layout/ucin/desoutter,on.png"/></imgmap></MagicCtrl>
+</Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_controller_cyclesub"><Ctrls>
+<Label Align="Right" Text="controller cyclesub" Name="lb_controller_cyclesub" readonly="true" Size="160,20"/>
+<MagicCtrl Weight="70" Text="" ToolTip="ttp_controller_cyclesub" Name="controller_cyclesub" readonly="true" Size="70,20">
+<imgmap><map name="0" value="layout/ucin/desoutter,off.png"/><map name="1" value="layout/ucin/desoutter,on.png"/></imgmap></MagicCtrl>
+</Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_controller_curvesub"><Ctrls>
+<Label Align="Right" Text="controller curvesub" Name="lb_controller_curvesub" readonly="true" Size="160,20"/>
+<MagicCtrl Weight="70" Text="" ToolTip="ttp_controller_curvesub" Name="controller_curvesub" readonly="true" Size="70,20">
+<imgmap><map name="0" value="layout/ucin/desoutter,off.png"/><map name="1" value="layout/ucin/desoutter,on.png"/></imgmap></MagicCtrl>
+</Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_posco_conn"><Ctrls>
+<Label Align="Right" Text="controller posco conn" Name="lb_controller_posco_conn" readonly="true" Visible="false" Size="160,20"/>
+<MagicCtrl Weight="70" ToolTip="ttp_controller_posco_conn" Name="controller_posco_conn" visible0="false" Size="70,20">
+<imgmap><map name="0" value="layout/ucin/desoutter,off.png"/><map name="1" value="layout/ucin/desoutter,on.png"/></imgmap></MagicCtrl><BR/>
+</Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_controller_pset"><Ctrls>
+<Label Align="Right" Text="Current program" Name="lb_controller_pset" readonly="true" Size="160,20"/>
+<TextBox Weight="70" Text="" ToolTip="ttp_controller_pset" Name="controller_pset" readonly0="true" Size="70,20"/>
+</Ctrls></GroupBox>
+</Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox Name="GBDVstation_op_v" cols="xs12 sm6 md4"><Ctrls>
+<ListCtrl Name="station_cycletime_rs" ToolTip="ttp_station_op_v_v" onload="init" Size="700,150">
+	<DbDetails>
+		<DbTable>desoutter.iot_tighten_rs</DbTable><Index></Index>
+		<Data>hr,oks+noks total,oks,noks,oks/(oks+noks) as 'Y/R'</Data><Order></Order><Where>topic='devices/%{station_code}/sys/61/detail'</Where>
+		<queryFormat>select %{data} from %{dbtable} where %{where} order by idx desc limit 0,5</queryFormat> 
+	</DbDetails>
+	</ListCtrl><BR AutoHeight="1"/>
+</Ctrls></GroupBox>
+</Ctrls></GroupBox>
+
+<GroupBox Name="GBstation_op_v3" id="station_op_v3" Text="" Size="100,100"><Ctrls>
+<GroupBox cols="xs12 sm6 md4" Name="GBOPEstation_op_v" Size="100,100"><Ctrls>
+<GroupBox Name="viewImg" Text="" Size="100,100"><Ctrls>
+<MagicCtrl Name="img4status" ToolTip="ttp_userpicture" Size="200,210" images="layout/ucin/desoutter,smile.png" link="LinkLine:2;HoverColor:0x234511;UseHand:2;Tip:tooltipinfo">
+	<DbDetails fcsm="1"><queryFormat>0</queryFormat></DbDetails></MagicCtrl></Ctrls></GroupBox>
+<GroupBox Name="status" cols="xs12 sm6 md4" Text="" Size="100,100"><Ctrls>
+<TextBox Weight="70" Text="" ToolTip="ttp_mesapihttp" Name="mesapihttp" readonly="true" visible0="0" Size="70,80" multiline="1">
+<OnEnChange><!--assign name="controller_pset" expr="js('%{mesapihttp}'.match('PASS'))"/-->
+<if cond="'%{mesapihttp}'">
+<mqtt function="publish" expr="%{mesapihttp}" topic="devices/%{station_code}/mesapi/rs"/>
+	<if cond="'%{station_op_vLst[mesapi]}'">
+		<if cond="'%{mesapihttp}'.match('PASS')=='PASS'">
+			<info expr="MESAPI PASS"/>
+			<assign name="status_memo" expr="MESAPI PASS!"/>
+			<assign name="mesapihttpbreak" expr="0"/>
+		<else/>
+			<alert expr="MESAPI Fail"/>
+			<assign name="status_memo" expr="MESAPI Fail!"/>
+			<assign name="mesapihttpbreak" expr="1"/>
+		</if>
+	<else/>
+		<info expr="MESAPI EMPTY! Go on..."/>
+		<assign name="status_memo" expr="MESAPI EMPTY! Go on..."/>
+		<assign name="mesapihttpbreak" expr="0"/>
+	</if>
+	<if cond="!%{mesapihttpbreak}">
+		<assign name="prod_piece_screw" expr=""/>
+		<if cond="'%{modellist_name[jobid]}'">O5O6O4
+			<mqtt function="publish" expr="js(Math.floor(%{modellist_name[jobid]}%2))" topic="devices/%{posco_code}/jobs0"/>
+			<mqtt function="publish" expr="js(Math.floor((%{modellist_name[jobid]}/2)%2))" topic="devices/%{posco_code}/jobs1"/>
+			<mqtt function="publish" expr="js(Math.floor((%{modellist_name[jobid]}/4)%2))" topic="devices/%{posco_code}/jobs2"/>
+			<mqtt function="publish" expr="1" topic="devices/%{posco_code}/start"/>
+			<assign name="status_memo" expr="Posco Starting..."/>
+			</if>
+			<!--DbDetails><queryFormat>insert ignore into product_piece (serialnumber,product_id,dt) values('%{serialnumber}',%{modellist_name[product_id]},now())</queryFormat></DbDetails><submit namelist="DbDetails"/-->
+			<submit next="prod_piece_screw"/><submit next="prod_piece_screws"/>
+	</if>
+	</if></OnEnChange></TextBox><BR/>
+<!--Label Align="Right" Text="screw pos" Name="lb_screw_pos" readonly="true" Size="100,20"/-->
+<TextBox Weight="70" ToolTip="ttp_controller_posco_rs" Name="controller_posco_rs" readonly="1" visible="false" Size="70,20"><OnEnChange>
+<if cond="'%{controller_posco_rs}'"><if cond="'%{posco_rs_old}'!='%{controller_posco_rs}'"><assign name="posco_rs_old" expr="%{controller_posco_rs}"/>
+	<if cond="%{controller_posco_rs}"><assign name="status_memo" expr="Posco OK"/>
+	<mqtt function="publish" expr="0" topic="devices/%{posco_code}/tightenok"/>
+	<!--mqtt function="publish" expr="0" topic="devices/%{posco_code}/start"/>
+	<mqtt function="publish" expr="0" topic="devices/%{posco_code}/jobs0"/>
+	<mqtt function="publish" expr="0" topic="devices/%{posco_code}/jobs1"/>
+	<mqtt function="publish" expr="0" topic="devices/%{posco_code}/jobs2"/-->
+	<mqtt function="publish" expr="%{prod_piece_screw[pset]}" topic="devices/%{station_code}/psetdo"/>
+	<submit next="mqtt_publish_entool" function="click"/><else/><submit next="mqtt_publish_distool" function="click"/></if>
+</if></if></OnEnChange></TextBox><BR/>
+<TextBox Weight="70" ToolTip="ttp_controller_tighten_rs" Name="controller_tighten_rs" visible0="false" Size="70,20"><OnEnChange>
+<if cond="'%{controller_tighten_rs}'">
+	<DbDetails><queryFormat>select concat('layout/ucin/desoutter,',if(%{controller_tighten_rs},'smile.png','cry.png')) as images</queryFormat></DbDetails><submit namelist="DbDetails" next="img4status"/>
+	<submit next="mqtt_publish_distool" function="click"/>
+	<if cond="%{controller_tighten_rs}">
+		<assign name="controller_tighten_rs" expr=""/>
+		<if cond="(%{prod_piece_screw[pset]}==%{controller_pset})">
+			<assign name="status_memo" expr="Tighten OK and Goto Next"/>
+			<if cond="'%{modellist_name[jobid]}'">
+				<mqtt function="publish" expr="1" topic="devices/%{posco_code}/tightenok"/>
+			</if>
+			<submit next="station_cycletime_rs" delay="1000"/>
+			<submit next="station_tightening_rs"/>
+			<DbDetails><queryFormat>update product_screw set done=1,dt=NOW() where screw_id=%{prod_piece_screw[screw_id]}</queryFormat></DbDetails><submit namelist="DbDetails"/>
+			<submit next="prod_piece_screw" function="resetcontent"/><submit next="prod_piece_screw"/>
+		<else/>
+			<submit next="station_cycletime_rs" delay="1000"/>
+			<submit next="station_tightening_rs"/>
+			<assign name="status_memo" expr="Losen OK and Tighten retry..."/>
+			<mqtt function="publish" expr="%{prod_piece_screw[pset]}" topic="devices/%{station_code}/psetdo"/>
+			<submit next="mqtt_publish_entool" function="click"/>
+		</if>
+	<else/>
+		<assign name="controller_tighten_rs" expr=""/>
+		<submit next="station_cycletime_rs" delay="1000"/>
+		<submit next="station_tightening_rs"/>
+		<if cond="'%{prod_piece_screw[psetre]}'">
+		<assign name="status_memo" expr="Tighten Failed and Losen for Redo"/>
+		<mqtt function="publish" expr="%{prod_piece_screw[psetre]}" topic="devices/%{station_code}/psetdo"/>
+		<submit next="mqtt_publish_entool" function="click"/></if>
+	</if>
+	</if></OnEnChange></TextBox>
+</Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox Name="viewImg" Text="" Size="100,100"><Ctrls>
+<MagicCtrl Name="picture" ToolTip="ttp_userpicture" Size="400,210" link="LinkLine:2;HoverColor:0x234511;UseHand:2;Tip:tooltipinfo">
+	<DbDetails fcsm="1"><queryFormat>0</queryFormat></DbDetails></MagicCtrl>
+</Ctrls></GroupBox>
+</Ctrls></GroupBox>
+<BR AutoHeight="1"/>
+</Ctrls></GroupBox>
+</Ctrls></GroupBox>
+
+<BR AutoHeight="1"/><GroupBox Name="Query" feature="tab" Text="Query" cols="xs12 sm12 md12 lg12"><Ctrls>
+<BR AutoHeight="1"/><GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_SerialNumber"><Ctrls>
+<Label Align="Right" Text="SerialNumber" Name="lb_SerialNumber" readonly="true" Size="120,20"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_SerialNumber" Name="serialnumber2query" Size="170,20">
+<OnEnChange>
+<if cond="'%{serialnumber2query}'"><submit next="DirList"/></if></OnEnChange></TextBox>
+</Ctrls></GroupBox><BR/>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name=""><Ctrls>
+<ListCtrl Name="DirList" PageSize="10" loadedclick="1" Size="400,500"	Heading="文件名,200;类型,100;大小,100;修改时间,100">
+	<DbDetails>E:\vcsln\3ucs\fmonitor\svr\
+		<DbDatabase>..\file\%{serialnumber2query}</DbDatabase> 
+			<datatype>dir</datatype> 
+			<queryFormat>select * from .</queryFormat> 
+	</DbDetails>
+	<operator refresh="1">
+	<op text="view" mustselected="1"><submit next="curve_chart"/></op>
+	</operator>
+	<OnClick><if cond="'%{DirList[filename]}'"><submit next="curve_chart"/></if></OnClick>
+</ListCtrl>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm12 md8" Multiline="0" Name=""><Ctrls>
+<GraphChart Name="curve_chart" Size="700,500" Type="2" legendx="xinfo" legendy="yinfo" title="curve" segcol="">
+	<DbDetails>E:\vcsln\3ucs\fmonitor\svr\
+		<DbHost>local</DbHost>
+		<DbDatabase>..\file\%{serialnumber2query}</DbDatabase>
+		<DbSubDriver>ascii</DbSubDriver>
+		<DbTable>%{DirList[filename]}</DbTable>
+		<Index>id</Index>
+		<Data>*</Data>
+	</DbDetails>
+</GraphChart>
+</Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_desind"><Ctrls>
+<Label Align="Right" Text="desind" onload="init" Name="lb_desind" readonly="true" Size="60,20"/>
+<ComboBox Weight="150" Text="" ToolTip="ttp_desind" onload="init" Name="desind" readonly="true" Size="150,100">
+	<DbDetails>
+<Index>desind_id</Index>
+<DbTable>desoutter.desind</DbTable>
+<Data>desind_code,desind_id</Data>
+<queryFormat/></DbDetails></ComboBox>
+<MagicCtrl Name="refresdesind" Link="tip:刷新" images=",data/refresh.png" button="type:0" Size="20,20"><OnClick><submit next="desind"/></OnClick></MagicCtrl>\r\n</Ctrls></GroupBox>
+<TextBox Name="mqtt_recv" Size="100,20" Tooltip="value or cmd(such as acquire) for topic" Text="5"/>
+<TextBox name="mqtt_d4publish" Size="100,20" Tooltip="value for mqtt Topic" Text=""/>
+<Button Name="mqtt_subscribe" Clickneedconfirm="true" Size="100,20" Text="subscribe_txt" tooltip="订阅"><OnClick><mqtt next="mqtt_recv" function="subscribe" expr="devices/%{station_code}/%{desind}"/></OnClick></Button>
+<Button Name="subscribeXLst" Clickneedconfirm="true" Size="100,20" Text="subscribe_Lst" tooltip="订阅"><OnClick><mqtt next="station_op_v_vLst" function="subscribe" expr="devices/%{station_code}/%{desind}"/></OnClick></Button>
+<Button Name="mqtt_publish" Size="100,20" Text="MQTTpublish" tooltip=""><OnClick>
+<mqtt function="publish" expr="%{mqtt_d4publish}" topic="devices/%{station_code}/%{desind}"/>
+<assign name="memo" expr="%{$this.mesapi.meswb}"/>
+</OnClick></Button>
+<Button Name="mqtt_publish_ResetPosco1" Size="100,20" Text="ResetPosco" tooltip="">
+<OnClick>
+<DbDetails><queryFormat>update product_screw set done=0 WHERE (station_id,product_id)=('%{stationid}',%{modellist_name[product_id]})</queryFormat></DbDetails><submit namelist="DbDetails"/><submit next="prod_piece_screw" function="resetcontent"/>
+<mqtt function="publish" expr="0" topic="devices/%{station_code}/poscostart"/>
+<mqtt function="publish" expr="15" topic="devices/%{station_code}/psetdo"/>
+</OnClick></Button>
+</Ctrls></GroupBox>
+</Ctrls></GroupBox>
+</Ctrls>
+<OnActivate><if cond="%{role_id}!=1"><SetVisible name="mqtt_publish_ResetPosco1" Visible="0"/></if></OnActivate></WndTap>

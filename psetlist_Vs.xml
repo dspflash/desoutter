@@ -1,0 +1,20 @@
+﻿<GroupBox Name="GBDEDITpsetlist" text="Search" toggle="1"><Ctrls>
+<GroupBox Name="GB_pset_no" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_pset_no" Size="60,20" Text="pset_no" Align="Right"/>
+<TextBox Name="pset_no" Size="170,20" Text="" Weight="170" ToolTip="ttp_pset_no"></TextBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_modellist_id" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_modellist_id" Size="60,20" Text="modellist_id" Align="Right"/>
+<ComboBox Name="modellist_id" Size="150,100" Text="" Weight="150"  ToolTip="ttp_modellist_id">
+	<DbDetails>
+<Index>modellist_id</Index>
+<DbTable>desoutter.modellist</DbTable>
+<Data>modellist_name,modellist_id</Data>
+<Where></Where>
+<queryFormat></queryFormat></DbDetails></ComboBox>
+<MagicCtrl Name="refreshmodellist_id" Link="tip:刷新" images=",data/refresh.png" button="type:0" Size="20,20"><OnClick><submit next="modellist_id"/></OnClick></MagicCtrl>\r\n
+</Ctrls></GroupBox>
+<GroupBox Name="GB_is4redo" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<CheckBox Name="is4redo" Size="230,20" Text="is4redo" ToolTip="ttp_is4redo"></CheckBox>
+</Ctrls></GroupBox>
+</Ctrls></GroupBox>

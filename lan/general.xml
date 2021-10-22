@@ -1,0 +1,104 @@
+<Language name="general">
+<Lang name="ttp_controller_tighten_rs" value="Controller Tighten Result"/>
+<Lang name="ttp_mesapihttp" value="Mes Api Http"/>
+<Lang name="ttp_prod_piece_screw" value="Current Screw"/>
+<Lang name="ttp_prod_piece_screws" value="Screws"/>
+<Lang name="ttp_controller_posco_rs" value="Posco Rs"/>
+<Lang name="ttp_controller_posco_conn" value="Posco Connection"/>
+<Lang name="icon_product_v" value="Fab Fa-product-hunt"/>
+<Lang name="icon_modellist_v" value="Fas Fa-braille"/>
+<Lang name="icon_psetlist_v" value="Fas Fa-clipboard-list"/>
+<Lang name="icon_station_v" value="Fas Fa-box-tissue"/>
+<Lang name="icon_station_op_v" value="Fas Fa-procedures"/>
+<Lang name="icon_users_v" value="Fas Fa-hospital-user"/>
+<Lang name="icon_user_role_v" value="Fas Fa-user-cog"/>
+<Lang name="SerialNumber" value="Serial Number"/>
+<Lang name="ttp_SerialNumber" value="Serial Number"/>
+<Lang name="accountname" value="客户"/>
+<Lang name="imagename" value="图片"/>
+<Lang name="projectmilestonename" value="项目阶段"/>
+<Lang name="operation" value="操作"/>
+<Lang name="create" value="新增"/>
+<Lang name="create BAT" value="新增(批量)"/>
+<Lang name="modify" value="修改"/>
+<Lang name="reset" value="复位"/>
+<Lang name="delete" value="删除"/>
+<Lang name="refresh" value="刷新"/>
+<Lang name="firstpage" value="首页"/>
+<Lang name="prepage" value="上页"/>
+<Lang name="nextpage" value="下页"/>
+<Lang name="operator" value="操作"/>
+<Lang name="search" value="搜索"/>
+<Lang name="initial" value="初始"/>
+<Lang name="addone" value="添加"/>
+<Lang name="ttp_addone" value="打开新建页面添加新项目"/>
+<Lang name="records" value="记录数"/>
+<Lang name="ttp_records" value="记录数"/>
+<Lang name="ttp_pgs" value="总页数"/>
+<Lang name="ttp_pgcur" value="当前页"/>
+<Lang name="go2page" value="跳转"/>
+<Lang name="created_by" value="创建人"/>
+<Lang name="creation_date" value="创建时间"/>
+<Lang name="last_update_by" value="修改人"/>
+<Lang name="last_update_date" value="修改时间"/>
+<Lang name="presence" value="显示"/>
+<Lang name="locationmap" value="地图显示"/>
+<Lang name="address" value="地址"/>
+<Lang name="picklist_valueid" value="选取值"/>
+<Lang name="sortorderid" value="显示顺序"/>
+<Lang name="contact" value="联系人"/>
+<Lang name="basic" value="基本"/>
+<Lang name="phone" value="电话"/>
+<Lang name="mobile" value="手机"/>
+<Lang name="initiate" value="启动"/>
+<Lang name="complete" value="完成"/>
+<Lang name="completetask" value="任务完成"/>
+<Lang name="archive" value="归档"/>
+<Lang name="cancel" value="取消"/>
+<Lang name="import" value="导入"/>
+<Lang name="export" value="导出"/>
+<Lang name="is4redo" value="Rework"/>
+<Lang name="ttp_is4redo" value="Rework"/>
+<Lang name="view" value="查看"/>
+<Lang name="download" value="下载"/>
+<Lang name="submit" value="提交"/>
+<Lang name="approval_diagram" value="审批流图"/>
+<Lang name="modify" value="修改"/>
+<Lang name="save" value="保存"/>
+<Lang name="sendfile" value="发送文件"/>
+<Lang name="success" value="成功"/>
+<Lang name="description" value="说明"/>
+<Lang name="ttp_description" value=""/>
+<Lang name="taskprogress" value="任务处理"/>
+<Lang name="attachment2" value="任务跟踪"/>
+<Lang name="attachments" value="附件"/>
+<Lang name="SetResponsible" value="设置责任人"/>
+<Lang name="product_id" value="Product_id"/>
+<Lang name="screw_pos" value="Screw_pos"/>
+<Lang name="pset" value="Pset"/>
+<Lang name="psetre" value="Psetre"/>
+<Lang name="jobid" value="Jobid"/>
+<Lang name="station_id" value="Station_id"/>
+<Lang name="screw_id" value="Screw_id"/>
+<Lang name="controller connect" value="Controller Connect"/>
+<Lang name="controller psetsub" value="Controller Psetsub"/>
+<Lang name="controller tightensub" value="Controller Tightensub"/>
+<Lang name="controller cyclesub" value="Controller Cyclesub"/>
+<Lang name="controller curvesub" value="Controller Curvesub"/>
+<Lang name="controller posco conn" value="Controller Posco Conn"/>
+<Lang name="current program" value="Current Program"/>
+<Lang name="curve" value="Curve"/>
+<Lang name="hr" value="Hr"/>
+<Lang name="total" value="Total"/>
+<Lang name="oks" value="Oks"/>
+<Lang name="noks" value="Noks"/>
+<Lang name="img_pos_screw" value="Img_pos_screw"/>
+<Lang name="created_by" value="Created By"/>
+<Lang name="ttp_created_by" value="Created By"/>
+<Lang name="creation_date" value="Creation Date"/>
+<Lang name="ttp_creation_date" value="Creation Date"/>
+<Lang name="last_update_by" value="Update By"/>
+<Lang name="ttp_last_update_by" value="Update By"/>
+<Lang name="last_update_date" value="Update Date"/>
+<Lang name="ttp_last_update_date" value="Update Date"/>
+</Language>

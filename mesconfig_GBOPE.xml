@@ -1,0 +1,37 @@
+﻿<GroupBox cols="xs12 sm6 md4" Name="GBOPEmesconfig" Size="100,100"><Ctrls>
+<Button sqlpkinsert="mes_id" Text="create" ToolTip="ttp_createmesconfig" Name="insertmesconfig" Size="50,20">
+<OnClick>
+<DbDetails mode="insert" fcsm="1">
+<DbTable>desoutter.mesconfig</DbTable>
+<Required>%{dataRequired}</Required>
+<Requireless>%{dataRequireless}</Requireless>
+<Data>mesapi,customer,division,assemblynumber,testername,testprocess,boardtype,assemblyrevision,station_id</Data>
+<DataEx/>
+<queryFormat>insert into %{table} %{data}</queryFormat></DbDetails>
+<submit namelist="DbDetails"/><if cond="!%{insertmesconfig[broke]}"><if cond="%{refreshAfterEdit}==1"><submit next="mesconfigLst" delay="1000"/><elseif cond="%{refreshAfterEdit}==2"/><if cond="1"><if cond="'%{frmwndctrl}'"><submit next="%{frmwndctrl}" delay="1000"/><else/><submit next="$parent.mesconfig_vLst" delay="1000"/></if></if></if></if>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="modify" ToolTip="ttp_modifymesconfig" Name="modifymesconfig" Size="50,20">
+<OnClick>
+<DbDetails mode="update" fcsm="1">
+<DbTable>desoutter.mesconfig</DbTable>
+<Required>%{dataRequired}</Required>
+<Requireless>%{dataRequireless}</Requireless>
+<Data>mesapi,customer,division,assemblynumber,testername,testprocess,boardtype,assemblyrevision</Data>
+<DataEx/>
+<Where>mes_id='%{mes_id}'</Where>
+<queryFormat>update %{table} set %{data} where %{where}</queryFormat></DbDetails>
+<submit namelist="DbDetails"/><if cond="!%{modifymesconfig[broke]}"><if cond="%{refreshAfterEdit}==1"><submit next="mesconfigLst" delay="1000"/><elseif cond="%{refreshAfterEdit}==2"/><if cond="'%{frmwndctrl}'"><submit next="%{frmwndctrl}" delay="1000"/><else/><submit next="$parent.mesconfig_vLst" delay="1000"/></if></if></if>
+	</OnClick>
+</Button><TAB/>
+<Button Text="reset" ToolTip="ttp_resetmesconfig" Name="resetmesconfig" Size="50,20">
+<OnClick>
+<submit next="GBDEDITmesconfig" function="reset"/>
+	</OnClick>
+</Button><TAB/>
+<Button Text="Search" ToolTip="ttp_gsearchmesconfig" Name="gsearchmesconfig" Size="50,20" visible="false">
+<OnClick>
+<search next="mesconfigLst" listed="0" prefixwhere="0" prefixand="0" inputed="1"/><submit next="GBDEDITmesconfig" namelist="search" function="search"/>
+	</OnClick>
+</Button><TAB/>
+</Ctrls></GroupBox>

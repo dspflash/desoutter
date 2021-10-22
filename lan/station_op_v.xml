@@ -1,0 +1,49 @@
+﻿<Language name="station_op_v">
+<Lang name="station_op_v" value="Station Op"/>
+<Lang name="station_op_v1" value="Station Op 1"/>
+<Lang name="station_op_v2" value="Station Op 2"/>
+<Lang name="TabEditstation_op_v" value="Station_op_v Edit"/>
+<Lang name="TabViewstation_op_v" value="Station_op_v View"/>
+<Lang name="station_code" value=""/>
+<Lang name="ttp_station_code" value=""/>
+<Lang name="station_name" value=""/>
+<Lang name="ttp_station_name" value=""/>
+<Lang name="desoutter_ip" value=""/>
+<Lang name="ttp_desoutter_ip" value=""/>
+<Lang name="desoutter_port" value=""/>
+<Lang name="ttp_desoutter_port" value=""/>
+<Lang name="logfilefmt" value=""/>
+<Lang name="ttp_logfilefmt" value=""/>
+<Lang name="logfilepath" value=""/>
+<Lang name="ttp_logfilepath" value=""/>
+<Lang name="modellist_name" value="Modellist Name"/>
+<Lang name="ttp_modellist_name" value=""/>
+<Lang name="product_code" value=""/>
+<Lang name="ttp_product_code" value=""/>
+<Lang name="product_name" value=""/>
+<Lang name="screws" value="Screws"/>
+<Lang name="ttp_product_name" value=""/>
+<Lang name="memo" value=""/>
+<Lang name="ttp_memo" value=""/>
+<Lang name="station_id" value=""/>
+<Lang name="ttp_station_id" value=""/>
+<Lang name="modellist_id" value=""/>
+<Lang name="ttp_modellist_id" value=""/>
+<Lang name="product_id" value=""/>
+<Lang name="ttp_product_id" value=""/>
+<Lang name="ttp_operationstation_op_v" value=""/>
+<Lang name="ttp_createstation_op_v" value=""/>
+<Lang name="ttp_modifystation_op_v" value=""/>
+<Lang name="ttp_resetstation_op_v" value=""/>
+<Lang name="ttp_deletestation_op_v" value=""/>
+<Lang name="ttp_refreshstation_op_v" value=""/>
+<Lang name="operation" value=""/>
+<Lang name="create" value=""/>
+<Lang name="modify" value=""/>
+<Lang name="reset" value=""/>
+<Lang name="delete" value=""/>
+<Lang name="refresh" value=""/>
+<Lang name="firstpage" value=""/>
+<Lang name="prepage" value=""/>
+<Lang name="nextpage" value=""/>
+</Language>

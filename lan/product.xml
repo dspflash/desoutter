@@ -1,0 +1,38 @@
+﻿<Language name="product">
+<Lang name="product" value="Product"/>
+<Lang name="product_v" value="Product"/>
+<Lang name="TabEditproduct" value="Product Edit"/>
+<Lang name="TabViewproduct" value="Product View"/>
+<Lang name="product_name" value="Product name"/>
+<Lang name="ttp_product_name" value="Product name"/>
+<Lang name="product_code" value="Product ID"/>
+<Lang name="ttp_product_code" value="Product ID"/>
+<Lang name="memo" value="Memo"/>
+<Lang name="ttp_memo" value="Memo"/>
+<Lang name="attach" value="Attach"/>
+<Lang name="product_id" value=""/>
+<Lang name="ttp_product_id" value=""/>
+<Lang name="created_by" value="Created By"/>
+<Lang name="ttp_created_by" value="Created By"/>
+<Lang name="creation_date" value="Creation Date"/>
+<Lang name="ttp_creation_date" value="Creation Date"/>
+<Lang name="last_update_by" value="Update By"/>
+<Lang name="ttp_last_update_by" value="Update By"/>
+<Lang name="last_update_date" value="Update Date"/>
+<Lang name="ttp_last_update_date" value="Update Date"/>
+<Lang name="ttp_operationproduct" value=""/>
+<Lang name="ttp_createproduct" value=""/>
+<Lang name="ttp_modifyproduct" value=""/>
+<Lang name="ttp_resetproduct" value=""/>
+<Lang name="ttp_deleteproduct" value=""/>
+<Lang name="ttp_refreshproduct" value=""/>
+<Lang name="operation" value=""/>
+<Lang name="create" value=""/>
+<Lang name="modify" value=""/>
+<Lang name="reset" value=""/>
+<Lang name="delete" value=""/>
+<Lang name="refresh" value=""/>
+<Lang name="firstpage" value=""/>
+<Lang name="prepage" value=""/>
+<Lang name="nextpage" value=""/>
+</Language>

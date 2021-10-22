@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="UTF-8"?><XI3uWnd navtype="tab" debug="0" Title="智联装配" icons="http://3ucs.com/biz/theme/delight-vtiger/vtiger/style.css">
+	<DbDetails>
+		<SubDriver>MySQL ODBC 3.51 Driver</SubDriver>
+		<Host>localhost</Host>
+		<database>desoutter</database>
+		<sqlMode>NO_BACKSLASH_ESCAPES</sqlMode>
+		<User>i3u</User>
+		<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" xpointer="pass" href="config/db.xml"/>
+		</DbDetails>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\general.xml"/>	
+	<WndTaps>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="product_vm.xml"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="modellist_v.xml"/>
+	<!--xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="psetlist_v.xml"/-->
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="station_vm.xml"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="users_v.xml"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="user_role_v.xml"/>
+	<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="station_op.xml"></xi:include>
+	</WndTaps>
+</XI3uWnd>

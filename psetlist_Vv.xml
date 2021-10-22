@@ -1,0 +1,20 @@
+﻿<GroupBox Name="GBDVpsetlist" cols="xs12 sm12 md12 lg12"><Ctrls>
+<ListCtrl Name="psetlist_vLst" ToolTip="ttp_psetlist_v" Size="700,450" OnLoad="init" Heading="pset_no,55;pset_batchsize,55;modellist_id,120;is4redo,60;created_by,55;creation_date,150;last_update_by,55;last_update_date,150;pset_id,55;" loadedclick="0">
+	<DbDetails >
+<Index>pset_id</Index>
+<DbTable>desoutter.psetlist p left join desoutter.modellist m on p.modellist_id=m.modellist_id</DbTable>
+<Data>p.pset_no,p.pset_batchsize,m.modellist_name modellist_id,p.is4redo,p.created_by,p.creation_date,p.last_update_by,p.last_update_date,p.pset_id</Data>
+<Order>pset_id</Order></DbDetails>
+<operator refresh="1" initial="0" firstpage="0" prepage="0" nextpage="0">
+<op text="modify"><DbDetails><Where>pset_id='%{psetlist_vLst[pset_id]}'</Where></DbDetails><submit namelist="DbDetails" next="$this.psetlist.psetlistLst"/><assign name="$this.psetlist.frmwndctrl" expr="%{this}"/></op>
+<op text="delete" needconfirm="1"><DbDetails>
+<DbTable>desoutter.psetlist</DbTable>
+<Where>pset_id='%{psetlist_vLst[pset_id]}'</Where>
+<queryFormat>delete from %{table} where %{where}</queryFormat></DbDetails>
+<submit namelist="DbDetails"/><submit/></op>
+</operator>
+<OnChanged>
+<assign name="pgcur_psetlist" expr="js(%{psetlist_vLst[currentpage]}+1)"/>
+<assign name="pgscb_psetlist" expr="js(%{psetlist_vLst[currentpage]}+1)" function="SetSel"/>
+</OnChanged></ListCtrl>
+</Ctrls></GroupBox>

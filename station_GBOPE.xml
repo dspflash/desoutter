@@ -1,0 +1,37 @@
+﻿<GroupBox cols="xs12 sm6 md4" Name="GBOPEstation" Size="100,100"><Ctrls>
+<Button sqlpkinsert="station_id" Text="create" ToolTip="ttp_createstation" Name="insertstation" Size="50,20">
+<OnClick>
+<DbDetails mode="insert" fcsm="1">
+<DbTable>desoutter.station</DbTable>
+<Required>%{dataRequired}</Required>
+<Requireless>%{dataRequireless}</Requireless>
+<Data>station_name,station_code,posco_code,desoutter_ip,desoutter_port,logfilefmt,logfilepath</Data>
+<DataEx>created_by,creation_date,last_update_by,last_update_date;'%{user_id}',now(),'%{user_id}',now()</DataEx>
+<queryFormat>insert into %{table} %{data}</queryFormat></DbDetails>
+<submit namelist="DbDetails"/><if cond="!%{insertstation[broke]}"><if cond="%{refreshAfterEdit}==1"><submit next="stationLst" delay="1000"/><elseif cond="%{refreshAfterEdit}==2"/><if cond="0"><if cond="'%{frmwndctrl}'"><submit next="%{frmwndctrl}" delay="1000"/><else/><submit next="$parent.station_vLst" delay="1000"/></if></if></if></if>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="modify" ToolTip="ttp_modifystation" Name="modifystation" Size="50,20">
+<OnClick>
+<DbDetails mode="update" fcsm="1">
+<DbTable>desoutter.station</DbTable>
+<Required>%{dataRequired}</Required>
+<Requireless>%{dataRequireless}</Requireless>
+<Data>station_name,station_code,posco_code,desoutter_ip,desoutter_port,logfilefmt,logfilepath</Data>
+<DataEx>last_update_by,last_update_date;'%{user_id}',now()</DataEx>
+<Where>station_id='%{station_id}'</Where>
+<queryFormat>update %{table} set %{data} where %{where}</queryFormat></DbDetails>
+<submit namelist="DbDetails"/><if cond="!%{modifystation[broke]}"><if cond="%{refreshAfterEdit}==1"><submit next="stationLst" delay="1000"/><elseif cond="%{refreshAfterEdit}==2"/><if cond="'%{frmwndctrl}'"><submit next="%{frmwndctrl}" delay="1000"/><else/><submit next="$parent.station_vLst" delay="1000"/></if></if></if>
+	</OnClick>
+</Button><TAB/>
+<Button Text="reset" ToolTip="ttp_resetstation" Name="resetstation" Size="50,20">
+<OnClick>
+<submit next="GBDEDITstation" function="reset"/>
+	</OnClick>
+</Button><TAB/>
+<Button Text="Search" ToolTip="ttp_gsearchstation" Name="gsearchstation" Size="50,20" visible="false">
+<OnClick>
+<search next="stationLst" listed="0" prefixwhere="0" prefixand="0" inputed="1"/><submit next="GBDEDITstation" namelist="search" function="search"/>
+	</OnClick>
+</Button><TAB/>
+</Ctrls></GroupBox>

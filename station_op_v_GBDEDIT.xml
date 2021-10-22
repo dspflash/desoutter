@@ -1,0 +1,60 @@
+﻿<GroupBox Name="GBDEDITstation_op_v"><Ctrls>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_station_code"><Ctrls>
+<Label Align="Right" Text="station_code" Name="lb_station_code" readonly="true" Size="60,20"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_station_code" Name="station_code" readonly="true" Size="170,20"/>
+</Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_station_name"><Ctrls>
+<Label Align="Right" Text="station_name" Name="lb_station_name" readonly="true" Size="60,20"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_station_name" Name="station_name" readonly="true" Size="170,20"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" overlap="pre" Name="GB_desoutter_ip" Visible="false"><Ctrls>
+<Label Align="Right" Text="desoutter_ip" overlap="pre" Name="lb_desoutter_ip" readonly="true" Size="60,20" Visible="false"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_desoutter_ip" overlap="pre" Name="desoutter_ip" readonly="true" Size="170,20" Visible="false"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" overlap="pre" Name="GB_desoutter_port" Visible="false"><Ctrls>
+<Label Align="Right" Text="desoutter_port" overlap="pre" Name="lb_desoutter_port" readonly="true" Size="60,20" Visible="false"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_desoutter_port" overlap="pre" Name="desoutter_port" readonly="true" Size="170,20" Visible="false"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" overlap="pre" Name="GB_logfilefmt" Visible="false"><Ctrls>
+<Label Align="Right" Text="logfilefmt" overlap="pre" Name="lb_logfilefmt" readonly="true" Size="60,20" Visible="false"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_logfilefmt" overlap="pre" Name="logfilefmt" readonly="true" Size="170,20" Visible="false"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" overlap="pre" Name="GB_logfilepath" Visible="false"><Ctrls>
+<Label Align="Right" Text="logfilepath" overlap="pre" Name="lb_logfilepath" readonly="true" Size="60,20" Visible="false"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_logfilepath" overlap="pre" Name="logfilepath" readonly="true" Size="170,20" Visible="false"/>
+</Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_modellist_name"><Ctrls>
+<Label Align="Right" Text="modellist_name" onload="init" Name="lb_modellist_name" readonly="true" Size="60,20"/>
+<ComboBox Weight="150" Text="" ToolTip="ttp_modellist_name" onload="init" Name="modellist_name" readonly="true" Size="150,100">
+	<DbDetails>
+<Index>modellist_id</Index>
+<DbTable>desoutter.station_op_v</DbTable>
+<Data>modellist_name,product_name,product_code,product_id,modellist_id</Data>
+<Where>station_id='%{session.stationid}'</Where>
+<queryFormat/></DbDetails></ComboBox>
+<MagicCtrl Name="refreshmodellist_name" Link="tip:刷新" images=",data/refresh.png" button="type:0" Size="20,20"><OnClick><submit next="modellist_name"/></OnClick></MagicCtrl>\r\n</Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_product_code"><Ctrls>
+<Label Align="Right" Text="product_code" Name="lb_product_code" readonly="true" Size="60,20"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_product_code" Name="product_code" readonly="true" Size="170,20"/>
+</Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_product_name"><Ctrls>
+<Label Align="Right" Text="product_name" Name="lb_product_name" readonly="true" Size="60,20"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_product_name" Name="product_name" readonly="true" Size="170,20"/>
+</Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_memo"><Ctrls>
+<Label Align="Right" Text="memo" Name="lb_memo" readonly="true" Size="60,20"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_memo" Name="memo" readonly="true" Size="170,20"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" overlap="pre" Name="GB_station_id" Visible="false"><Ctrls>
+<Label Align="Right" Text="station_id" overlap="pre" Name="lb_station_id" readonly="true" Size="60,20" Visible="false"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_station_id" overlap="pre" Name="station_id" readonly="true" Size="170,20" Visible="false"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" overlap="pre" Name="GB_modellist_id" Visible="false"><Ctrls>
+<Label Align="Right" Text="modellist_id" overlap="pre" Name="lb_modellist_id" readonly="true" Size="60,20" Visible="false"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_modellist_id" overlap="pre" Name="modellist_id" readonly="true" Size="170,20" Visible="false"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" overlap="pre" Name="GB_product_id" Visible="false"><Ctrls>
+<Label Align="Right" Text="product_id" overlap="pre" Name="lb_product_id" readonly="true" Size="60,20" Visible="false"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_product_id" overlap="pre" Name="product_id" readonly="true" Size="170,20" Visible="false"/>
+</Ctrls></GroupBox>
+</Ctrls></GroupBox>

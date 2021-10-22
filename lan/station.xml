@@ -1,0 +1,46 @@
+﻿<Language name="station">
+<Lang name="station" value="Station"/>
+<Lang name="station_v" value="Station"/>
+<Lang name="TabEditstation" value="Station Edit"/>
+<Lang name="TabViewstation" value="Station View"/>
+<Lang name="station_name" value="Station Name"/>
+<Lang name="ttp_station_name" value="Station Name"/>
+<Lang name="station_code" value="Station Code"/>
+<Lang name="ttp_station_code" value="Station Code"/>
+<Lang name="desoutter_ip" value="Desoutter Ip"/>
+<Lang name="ttp_desoutter_ip" value="Desoutter Ip"/>
+<Lang name="desoutter_port" value="Desoutter Port"/>
+<Lang name="ttp_desoutter_port" value="Desoutter Port"/>
+<Lang name="logfilefmt" value="Logfile Formamt"/>
+<Lang name="ttp_logfilefmt" value="Logfile Formamt"/>
+<Lang name="logfilepath" value="Logfile Path"/>
+<Lang name="ttp_logfilepath" value="Logfile Path"/>
+<Lang name="created_by" value=""/>
+<Lang name="mesconfig" value="Mesconfig"/>
+<Lang name="ttp_created_by" value=""/>
+<Lang name="creation_date" value=""/>
+<Lang name="ttp_creation_date" value=""/>
+<Lang name="last_update_by" value=""/>
+<Lang name="ttp_last_update_by" value=""/>
+<Lang name="last_update_date" value=""/>
+<Lang name="ttp_last_update_date" value=""/>
+<Lang name="station_id" value=""/>
+<Lang name="posco_code" value="Posco_code"/>
+<Lang name="ttp_station_id" value=""/>
+<Lang name="ttp_operationstation" value=""/>
+<Lang name="ttp_createstation" value=""/>
+<Lang name="ttp_modifystation" value=""/>
+<Lang name="ttp_resetstation" value=""/>
+<Lang name="ttp_deletestation" value=""/>
+<Lang name="ttp_refreshstation" value=""/>
+<Lang name="operation" value=""/>
+<Lang name="create" value=""/>
+<Lang name="modify" value=""/>
+<Lang name="userhostname" value="Userhostname"/>
+<Lang name="reset" value=""/>
+<Lang name="delete" value=""/>
+<Lang name="refresh" value=""/>
+<Lang name="firstpage" value=""/>
+<Lang name="prepage" value=""/>
+<Lang name="nextpage" value=""/>
+</Language>

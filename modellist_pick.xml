@@ -1,0 +1,22 @@
+﻿<WndTap Name="modellist_pick" Text="modellist_Pick">
+<var name="searchtmpl"><modellist_name format="(m.modellist_name like '%%{opvalue}%')"/><product_id format="m.product_id='%{opvalue}'"/><station_id format="m.station_id='%{opvalue}'"/><created_by format="(m.created_by like '%%{opvalue}%')"/><creation_date format="(m.creation_date between '%{creation_date[datetime]}' and '%{creation_date[datetime2]}')"/><last_update_by format="(m.last_update_by like '%%{opvalue}%')"/><last_update_date format="(m.last_update_date between '%{last_update_date[datetime]}' and '%{last_update_date[datetime2]}')"/><modellist_id format="(m.modellist_id like '%%{opvalue}%')"/></var>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\modellist.xml"/>
+<Ctrls><GroupBox  Name="GBmodellist" id="modellist" Text="modellist" Size="100,100"><Ctrls>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="modellist_Vs.xml"/>
+<BR AutoHeight="1"/><GroupBox  Name="GBOPVmodellist" Size="100,20" cols="xs12 sm6 md4"><Ctrls>
+<Button Text="reset" ToolTip="ttp_resetmodellist" Name="resetmodellist" Size="50,20">	<OnClick>	<submit next="GBDEDITmodellist" function="reset"/>	</OnClick>	</Button><TAB/>	
+<Button Text="Search" ToolTip="ttp_gsearchmodellist" Name="gsearchmodellist" Size="50,20">	<OnClick>	
+<search next="modellist_vLst" listed="0" prefixwhere="0" prefixand="0" inputed="1">%{searchtmpl}</search><submit next="GBDEDITmodellist" namelist="search" function="search"/>	
+</OnClick></Button><TAB/></Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox Name="GBDVmodellist" cols="xs12 sm12 md12 lg12"><Ctrls>
+<ListCtrl Name="modellist_vLst" ToolTip="ttp_modellist_v" Size="700,450" Heading="modellist_name,100;product_id,120;station_id,120;created_by,55;creation_date,150;last_update_by,55;last_update_date,150;modellist_id,55;" loadedclick="0">
+	<DbDetails >
+<Index>modellist_id</Index>
+<DbTable>desoutter.modellist m left join desoutter.product p on m.product_id=p.product_id left join desoutter.station s on m.station_id=s.station_id</DbTable>
+<Data>m.modellist_name,p.product_name product_id,s.station_name station_id,m.created_by,m.creation_date,m.last_update_by,m.last_update_date,m.modellist_id</Data>
+<Order>modellist_id</Order></DbDetails>
+<OnClick><if cond="%{modellist_vLst[modellist_id]}"><DbDetails><Where>modellist_id='%{modellist_vLst[modellist_id]}'</Where></DbDetails><submit namelist="DbDetails" next="$parent.%{frmwndctrl}"/><submit function="onok"/></if></OnClick>
+</ListCtrl>
+</Ctrls></GroupBox>
+</Ctrls></GroupBox>
+</Ctrls></WndTap>

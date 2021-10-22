@@ -1,0 +1,12 @@
+﻿<GroupBox Name="GBDVpsetlist" cols="xs12 sm12 md12 lg12" visible="0"><Ctrls>
+<ListCtrl Name="psetlistLst" ToolTip="ttp_psetlist" Size="70,20" visible="0" loadedclick="1">
+	<DbDetails fcsm="1">
+<Index>pset_id</Index>
+<DbTable>desoutter.psetlist</DbTable>
+<Data>pset_no,pset_batchsize,modellist_id,is4redo,created_by,creation_date,last_update_by,last_update_date,pset_id</Data>
+<Order>pset_id</Order></DbDetails>
+<OnClick><assign name="modellist_id[modellist_id]" expr="%{psetlistLst[modellist_id]}" function="SetSel"/>
+<if cond="'%{pset_id}'"><SetVisible name="insertpsetlist" Visible="0"/><SetVisible name="modifypsetlist" Visible="1"/></if>
+</OnClick>
+</ListCtrl>
+</Ctrls></GroupBox>

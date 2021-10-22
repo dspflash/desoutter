@@ -1,0 +1,23 @@
+﻿<WndTap Name="product_screw_pick" Text="product_screw_Pick">
+<var name="searchtmpl"><product_id format="p.product_id='%{opvalue}'"/><screw_pos format="(p.screw_pos like '%%{opvalue}%')"/><pset format="(p.pset like '%%{opvalue}%')"/><psetre format="(p.psetre like '%%{opvalue}%')"/><station_id format="(p.station_id like '%%{opvalue}%')"/><screw_id format="(p.screw_id like '%%{opvalue}%')"/></var>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\product_screw.xml"/>
+<Ctrls><GroupBox  Name="GBproduct_screw" id="product_screw" Text="product_screw" Size="100,100"><Ctrls>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="product_screw_Vs.xml"/>
+<BR AutoHeight="1"/><GroupBox  Name="GBOPVproduct_screw" Size="100,20" cols="xs12 sm6 md4"><Ctrls>
+<Button Text="reset" ToolTip="ttp_resetproduct_screw" Name="resetproduct_screw" Size="50,20">	<OnClick>	<submit next="GBDEDITproduct_screw" function="reset"/>	</OnClick>	</Button><TAB/>	
+<Button Text="Search" ToolTip="ttp_gsearchproduct_screw" Name="gsearchproduct_screw" Size="50,20">	<OnClick>	
+<search next="product_screw_vLst" listed="0" prefixwhere="0" prefixand="0" inputed="1">%{searchtmpl}</search><submit next="GBDEDITproduct_screw" namelist="search" function="search"/>	
+</OnClick></Button><TAB/></Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox Name="GBDVproduct_screw" cols="xs12 sm12 md12 lg12"><Ctrls>
+<ListCtrl Name="product_screw_vLst" ToolTip="ttp_product_screw_v" Size="700,450" Heading="product_id,120;screw_pos,20;pset,20;psetre,20;jobid,20;station_id,55;screw_id,55;" loadedclick="0">
+	<DbDetails >
+<Index>screw_id</Index>
+<DbTable>desoutter.product_screw p join desoutter.product p0 on (p0.actived and p.product_id=p0.product_id) left join posco c on c.product_id=p.product_id and p.station_id=c.station_id</DbTable>
+<Data>p0.product_name product_id,p.screw_pos,p.pset,p.psetre,jobid,p.station_id,p.screw_id,posco_id</Data>
+<Order>screw_id</Order></DbDetails>
+<DbDetails></DbDetails>
+<OnClick><if cond="%{product_screw_vLst[screw_id]}"><DbDetails><Where>screw_id='%{product_screw_vLst[screw_id]}'</Where></DbDetails><submit namelist="DbDetails" next="$parent.%{frmwndctrl}"/><submit function="onok"/></if></OnClick>
+</ListCtrl>
+</Ctrls></GroupBox>
+</Ctrls></GroupBox>
+</Ctrls></WndTap>

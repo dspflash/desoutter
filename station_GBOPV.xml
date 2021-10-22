@@ -1,0 +1,17 @@
+﻿<GroupBox cols="xs12 sm6 md4" Name="GBOPVstation" Size="100,100"><Ctrls>
+<Button Text="delete" ToolTip="ttp_deletestation" Name="deletestation" Size="50,20">
+	<OnClick>
+	<DbDetails fcsm="1">
+<DbTable>desoutter.station</DbTable>
+<Where>station_id='%{stationLst[station_id]}'</Where>
+<queryFormat>delete from %{table} where %{where}</queryFormat></DbDetails>
+	<submit namelist="DbDetails"/><submit next="searchstation" function="click"/>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="refresh" ToolTip="ttp_refreshstation" Name="searchstation" Size="50,20">
+			  <OnClick><submit next="stationLst"/>	</OnClick>
+</Button>
+<TAB/><TAB/><Button Text="firstpage" Name="FPstationLst" OnClick="(stationLst)GetPage(First)" Size="50,20"/>
+<TAB/><Button Text="prepage" Name="PREstationLst" OnClick="(stationLst)GetPage(Pre)" Size="50,20"/>
+<TAB/><Button Text="nextpage" Name="NPstationLst" OnClick="(stationLst)GetPage(Next)" Size="50,20"/>
+</Ctrls></GroupBox>

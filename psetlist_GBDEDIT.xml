@@ -1,0 +1,43 @@
+﻿<GroupBox Name="GBDEDITpsetlist"><Ctrls>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_pset_no"><Ctrls>
+<Label Align="Right" Text="pset_no" Name="lb_pset_no" Size="60,20"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_pset_no" Name="pset_no" Size="170,20"/>
+</Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_pset_batchsize"><Ctrls>
+<Label Align="Right" Text="pset_batchsize" Name="lb_pset_batchsize" Size="60,20"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_pset_batchsize" Name="pset_batchsize" Size="170,20"/>
+</Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_modellist_id"><Ctrls>
+<Label Align="Right" Text="modellist_id" onload="init" Name="lb_modellist_id" Size="60,20"/>
+<ComboBox Weight="150" Text="" ToolTip="ttp_modellist_id" onload="init" Name="modellist_id" Size="150,100">
+	<DbDetails>
+<Index>modellist_id</Index>
+<DbTable>desoutter.modellist</DbTable>
+<Data>modellist_name,modellist_id</Data>
+<Where/>
+<queryFormat/></DbDetails></ComboBox>
+<MagicCtrl Name="refreshmodellist_id" Link="tip:刷新" images=",data/refresh.png" button="type:0" Size="20,20"><OnClick><submit next="modellist_id"/></OnClick></MagicCtrl>\r\n</Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_is4redo"><Ctrls>
+<CheckBox Text="is4redo" ToolTip="ttp_is4redo" Name="is4redo" Size="230,20"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" overlap="pre" Name="GB_created_by" Visible="false"><Ctrls>
+<Label Align="Right" Text="created_by" overlap="pre" Name="lb_created_by" Size="60,20" Visible="false"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_created_by" overlap="pre" Name="created_by" Size="170,20" Visible="false"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" overlap="pre" Name="GB_creation_date" Visible="false"><Ctrls>
+<Label Align="Right" Text="creation_date" overlap="pre" Name="lb_creation_date" Size="60,20" Visible="false"/>
+<DateTime Weight="170" Text="" ToolTip="ttp_creation_date" overlap="pre" Name="creation_date" Size="170,20" Visible="false" Format="yyyy-MM-dd HH:mm:ss"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" overlap="pre" Name="GB_last_update_by" Visible="false"><Ctrls>
+<Label Align="Right" Text="last_update_by" overlap="pre" Name="lb_last_update_by" Size="60,20" Visible="false"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_last_update_by" overlap="pre" Name="last_update_by" Size="170,20" Visible="false"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" overlap="pre" Name="GB_last_update_date" Visible="false"><Ctrls>
+<Label Align="Right" Text="last_update_date" overlap="pre" Name="lb_last_update_date" Size="60,20" Visible="false"/>
+<DateTime Weight="170" Text="" ToolTip="ttp_last_update_date" overlap="pre" Name="last_update_date" Size="170,20" Visible="false" Format="yyyy-MM-dd HH:mm:ss"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" overlap="pre" Name="GB_pset_id" Visible="false"><Ctrls>
+<Label Align="Right" Text="pset_id" overlap="pre" Name="lb_pset_id" readonly="true" Size="60,20" Visible="false"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_pset_id" overlap="pre" Name="pset_id" readonly="true" Size="170,20" Visible="false"><OnEnChange><if cond="'%{pset_id}'"><SetVisible name="insertpsetlist" Visible="0"/><SetVisible name="modifypsetlist" Visible="1"/><else/><SetVisible name="insertpsetlist" Visible="1"/><SetVisible name="modifypsetlist" Visible="0"/></if></OnEnChange></TextBox>
+</Ctrls></GroupBox>
+</Ctrls></GroupBox>

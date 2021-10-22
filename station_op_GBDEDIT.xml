@@ -1,0 +1,118 @@
+﻿<GroupBox Name="GBDEDITstation_op_v"><Ctrls>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_station_code"><Ctrls>
+<Label Align="Right" Text="station_code" Name="lb_station_code" readonly="true" Size="120,20"/>
+<TextBox Weight="150" Text="" ToolTip="ttp_station_code" Name="station_code" readonly="true" Size="150,20"><OnEnchange>
+<if cond="'%{station_code}'"><submit next="subscribe_station" function="click"/><submit next="station_tightening_rs"/><submit next="station_cycletime_rs"/></if></OnEnchange></TextBox>
+<MagicCtrl Name="refreshstation" Link="tip:刷新" images=",data/refresh.png" button="type:0" Size="20,20"><OnClick><assign name="station_code" expr=""/><submit next="station_op_vLst"/></OnClick></MagicCtrl>\r\n
+</Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_station_name"><Ctrls>
+<Label Align="Right" Text="station_name" Name="lb_station_name" readonly="true" Size="120,20"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_station_name" Name="station_name" readonly="true" Size="170,20"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" overlap="pre" Name="GB_desoutter_ip" Visible="false"><Ctrls>
+<Label Align="Right" Text="desoutter_ip" overlap="pre" Name="lb_desoutter_ip" readonly="true" Size="120,20" Visible="false"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_desoutter_ip" overlap="pre" Name="desoutter_ip" readonly="true" Size="170,20" Visible="false"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" overlap="pre" Name="GB_desoutter_port" Visible="false"><Ctrls>
+<Label Align="Right" Text="desoutter_port" overlap="pre" Name="lb_desoutter_port" readonly="true" Size="120,20" Visible="false"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_desoutter_port" overlap="pre" Name="desoutter_port" readonly="true" Size="170,20" Visible="false"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" overlap="pre" Name="GB_logfilefmt" Visible="false"><Ctrls>
+<Label Align="Right" Text="logfilefmt" overlap="pre" Name="lb_logfilefmt" readonly="true" Size="120,20" Visible="false"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_logfilefmt" overlap="pre" Name="logfilefmt" readonly="true" Size="170,20" Visible="false"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" overlap="pre" Name="GB_logfilepath" Visible="false"><Ctrls>
+<Label Align="Right" Text="logfilepath" overlap="pre" Name="lb_logfilepath" readonly="true" Size="120,20" Visible="false"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_logfilepath" overlap="pre" Name="logfilepath" readonly="true" Size="170,20" Visible="false"><OnEnChange><if cond="'%{logfilepath}'"><mqtt function="publish" expr="%{logfilepath}" topic="devices/%{station_code}/acqer_//csvpath"/></if></OnEnChange></TextBox>
+</Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_modellist_name"><Ctrls>
+<Label Align="Right" Text="modellist_name" onload="init" Name="lb_modellist_name" readonly="true" Size="120,20"/>
+<ComboBox Weight="130" Text="" ToolTip="ttp_modellist_name" onload="init" Name="modellist_name" readonly="true" Size="130,100">
+	<DbDetails>
+<Index>modellist_id</Index>
+<DbTable>desoutter.product p join desoutter.modellist m on (p.actived and p.product_id=m.product_id) left join posco c on (c.product_id=p.product_id and m.station_id=c.station_id)</DbTable>
+<Data>modellist_name,product_name,product_code,p.memo,p.product_id,c.jobid,img_pos_screw,modellist_id</Data>
+<Where>m.station_id='%{stationid}'</Where>
+<queryFormat/></DbDetails>
+<OnSelEndOk><submit next="psetlist"/><if cond="'%{modellist_name}'"><assign name="product_code" expr=""/><assign name="serialnumber" expr=""/><assign name="$this.qrscan.scandata" expr=""/><setfocus name="$this.qrscan.scandata" expr="1" delay="1000"/><DbDetails><queryFormat>select concat('file/desoutter/productimg,','%{modellist_name[img_pos_screw]}') as images</queryFormat></DbDetails><submit namelist="DbDetails" next="picture"/>
+</if><assign name="jobid" expr="%{modellist_name[jobid]}"/><assign name="testername" expr="js('%{modellist_name[memo]}'.substr(0,'%{modellist_name[memo]}'.indexOf('@')))"/><assign name="processstep" expr="js('%{modellist_name[memo]}'.substr('%{modellist_name[memo]}'.indexOf('@')+1))"/><info expr="T:%{testername}"/><info expr="P:%{processstep}"/></OnSelEndOk></ComboBox>
+<MagicCtrl Name="refreshmodellist_name" Link="tip:刷新" images=",data/refresh.png" button="type:0" Size="20,20"><OnClick><submit next="modellist_name"/></OnClick></MagicCtrl>\r\n
+<MagicCtrl Name="doscan" Link="tip:scan" images=",data/search.png" button="type:0" Size="20,20"><OnClick><assign name="product_code" expr=""/><if cond="'%{modellist_name}'"><assign name="serialnumber" expr=""/><assign name="$this.qrscan.scandata" expr=""/><setfocus name="$this.qrscan.scandata" expr="1" delay="1000"/></if></OnClick></MagicCtrl>\r\n
+</Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_product_code"><Ctrls>
+<Label Align="Right" Text="product_code" Name="lb_product_code" readonly="true" Size="120,20"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_product_code" Name="product_code" readonly="true" Size="170,20"/>
+</Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_SerialNumber"><Ctrls>
+<Label Align="Right" Text="SerialNumber" Name="lb_SerialNumber" readonly="true" Size="120,20"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_SerialNumber" Name="serialnumber" readonly="true" Size="170,20">
+<OnEnChange>
+<assign name="controller_pset" expr=""/>
+<mqtt function="publish" expr="0" topic="devices/%{posco_code}/reset"/>
+<if cond="'%{serialnumber}'">
+<if cond="'%{product_code}'"><if cond="('%{product_code}'=='%{modellist_name[product_code]}')">
+<if cond="'%{logfilepath}'"><mqtt function="publish" expr="%{logfilepath}" topic="devices/%{station_code}/acqer_//csvpath"/></if>%{product_code}%{SerialNumber}
+<mqtt function="publish" expr="%{serialnumber}_%{modellist_name[memo]}" topic="devices/%{station_code}/acqer_//csvfile4mid61"/>
+<mqtt function="publish" expr="%{serialnumber}_%{modellist_name[memo]}" topic="devices/%{station_code}/acqer_//csvfile4mid7410"/>
+<mqtt function="publish" expr="S%{SerialNumber}\r\nC%{station_op_vLst[customer]}\r\nr%{station_op_vLst[assemblyrevision]}\r\nN%{testername}\r\nP%{processstep}\r\nn%{station_op_vLst[assemblynumber]}\r\nL%{station_op_vLst[division]}\r\nTP" topic="devices/%{station_code}/acqer_//txtfile4mid61header"/>
+<mqtt function="publish" expr="&gt;Torque: %{torquemin}~%{torquemax},Angle: D %{anglemin}~%{anglemax},Post View Torque dPASS/dFAIL\r\n" topic="devices/%{station_code}/acqer_//txtfile4mid61resultsheader"/>
+<mqtt function="publish" expr="%{txtHeader}%{timestamp}\r\n%{results}" topic="devices/%{station_code}/acqer_//log_data"/>
+<mqtt function="publish" expr="MScrew%{index} Torque\r\n&gt;%{torque}\r\nMScrew%{index} Angle\r\n&gt;D%{angle}\r\nMScrew%{index} Post View Torque\r\n&gt;dPASS\r\n\r\n" topic="devices/%{station_code}/acqer_//screw_data"/>
+<assign name="mesapihttp" expr=""/>
+<if cond="'%{station_op_vLst[mesapi]}'"><assign name="status_memo" expr="MES API Requesting..."/>
+<mqtt function="publish" expr="%{station_op_vLst[mesapi]}?CustomerName=%{station_op_vLst[customer]}&Division=%{station_op_vLst[division]}&SerialNumber=%{serialnumber}&AssemblyNumber=%{product_code}&TesterName=%{testername}&ProcessStep=%{processstep}" topic="devices/%{station_code}/mesapi"/>
+<assign name="mesapihttp" expr="ihttp:%{station_op_vLst[mesapi]}?CustomerName=%{station_op_vLst[customer]}&Division=%{station_op_vLst[division]}&SerialNumber=%{serialnumber}&AssemblyNumber=%{product_code}&TesterName=%{testername}&ProcessStep=%{processstep}" function=""/>
+<!--assign name="$this.mesapi.meswb" expr="http://3ucs.com/logxflyinfo?sQMType=QM1&sCustomer=1&sSerialNo=%{serialnumber}&sTester=2&sProcessStep=3" function="Navigate"/-->
+<else/><assign name="mesapihttp" expr="mesapitest"/></if>
+<else/><alert expr="产品不符"/><assign name="status_memo" expr="产品不符"/>
+</if></if>
+</if></OnEnChange></TextBox>
+</Ctrls></GroupBox>
+<BR AutoHeight="1"/><!--GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_memo"><Ctrls>
+<Label Align="Right" Text="memo" Name="lb_memo" readonly="true" Size="120,20"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_memo" Name="memo" readonly="true" Size="170,20"/>
+</Ctrls></GroupBox-->
+<GroupBox cols="xs12 sm6 md4" Multiline="0" overlap="pre" Name="GB_station_id" Visible="false"><Ctrls>
+<Label Align="Right" Text="station_id" overlap="pre" Name="lb_station_id" readonly="true" Size="120,20" Visible="false"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_station_id" overlap="pre" Name="station_id" readonly="true" Size="170,20" Visible="false"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_jobid" Visible="false"><Ctrls>
+<Label Align="Right" Text="jobid" Name="lb_jobid" readonly="true" Size="120,20"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_jobid" Name="jobid" readonly="true" Size="170,20"/>
+</Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_screws"><Ctrls>
+<Label Align="Right" Text="screws" Name="lb_screws" readonly="true" Size="120,20"/>
+<TextBox Weight="70" ToolTip="ttp_prod_piece_screw" Name="prod_piece_screw" nullchanged="1" readonly="true" Size="70,20">
+	<DbDetails><queryFormat>select screw_pos,pset,psetre,screw_id from product_screw where (station_id,product_id) =('%{stationid}',%{modellist_name[product_id]}) and done=0 order by screw_pos limit 0,1</queryFormat></DbDetails>
+	<OnChanged><submit next="mqtt_publish_posco_tighten" function="click"/>
+</OnChanged></TextBox>
+<TextBox Weight="70" ToolTip="ttp_prod_piece_screws" Name="prod_piece_screws" nullchanged="1" readonly="true" Size="70,20">
+	<DbDetails><queryFormat>select count(*) from product_screw where (station_id,product_id) =('%{stationid}',%{modellist_name[product_id]})</queryFormat></DbDetails>
+	</TextBox><BR/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" overlap="pre" Name="GB_modellist_id" Visible="false"><Ctrls>
+<Label Align="Right" Text="modellist_id" overlap="pre" Name="lb_modellist_id" readonly="true" Size="120,20" Visible="false"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_modellist_id" overlap="pre" Name="modellist_id" readonly="true" Size="170,20" Visible="false"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" overlap="pre" Name="GB_product_id" Visible="false"><Ctrls>
+<Label Align="Right" Text="product_id" overlap="pre" Name="lb_product_id" readonly="true" Size="120,20" Visible="false"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_product_id" overlap="pre" Name="product_id" readonly="true" Size="170,20" Visible="false"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" overlap="pre" Name="GB_posco_code" Visible="false"><Ctrls>
+<Label Align="Right" Text="posco_code" overlap="pre" Name="lb_posco_code" readonly="true" Size="120,20" Visible="false"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_posco_code" overlap="pre" Name="posco_code" readonly="true" Size="170,20" Visible="false"><OnEnchange>
+<if cond="'%{posco_code}'"><submit next="subscribe_posco" function="click"/></if></OnEnchange></TextBox>
+</Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_modellist_name"><Ctrls>
+<TextBox Weight="70" ToolTip="ttp_status_memo" Name="status_memo" readonly="1" Size="70,20"/>
+
+<!--Label Align="Right" Text="PSet List" onload="init" Name="lb_PSet List" readonly="true" Size="120,20"/>
+<ComboBox Weight="150" Text="" ToolTip="ttp_PSet List" onload="init" Name="psetlist" readonly="true" Size="150,100">
+	<DbDetails>
+<Index>pset_id</Index>
+<DbTable>desoutter.psetlist</DbTable>
+<Data>concat(pset_no,'-N',pset_batchsize,'-R',is4redo),pset_no,pset_batchsize,is4redo,pset_id</Data>
+<Where>modellist_id='%{modellist_name[modellist_id]}'</Where>
+<queryFormat/></DbDetails></ComboBox>
+<MagicCtrl Name="refreshpsetlist" Link="tip:刷新" images=",data/refresh.png" button="type:0" Size="20,20"><OnClick><submit next="psetlist"/></OnClick></MagicCtrl-->\r\n</Ctrls></GroupBox>
+</Ctrls></GroupBox>

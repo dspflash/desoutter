@@ -1,0 +1,12 @@
+﻿<GroupBox Name="GBDVproduct_screw" cols="xs12 sm12 md12 lg12" visible="0"><Ctrls>
+<ListCtrl Name="product_screwLst" ToolTip="ttp_product_screw" Size="70,20" visible="0" loadedclick="1">
+	<DbDetails fcsm="1">
+<Index>screw_id</Index>
+<DbTable>desoutter.product_screw</DbTable>
+<Data>product_id,screw_pos,pset,psetre,station_id,screw_id</Data>
+<Order>screw_id</Order></DbDetails>
+<OnClick><assign name="product_id[product_id]" expr="%{product_screwLst[product_id]}" function="SetSel"/>
+<if cond="'%{screw_id}'"><SetVisible name="insertproduct_screw" Visible="0"/><SetVisible name="modifyproduct_screw" Visible="1"/></if>
+</OnClick>
+</ListCtrl>
+</Ctrls></GroupBox>

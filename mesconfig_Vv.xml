@@ -1,0 +1,20 @@
+﻿<GroupBox Name="GBDVmesconfig" cols="xs12 sm12 md12 lg12"><Ctrls>
+<ListCtrl Name="mesconfig_vLst" ToolTip="ttp_mesconfig_v" Size="700,450" OnLoad="init" Heading="mesapi,250;customer,250;assemblyrevision,250;testername,250;testprocess,250;assemblynumber,250;division,250;mes_id,55;" loadedclick="0">
+	<DbDetails >
+<Index>mes_id</Index>
+<DbTable>desoutter.mesconfig m</DbTable>
+<Data>m.mesapi,m.customer,m.assemblyrevision,m.testername,m.testprocess,m.assemblynumber,m.division,m.mes_id</Data>
+<Order>mes_id</Order></DbDetails>
+<operator refresh="1" initial="0" firstpage="0" prepage="0" nextpage="0">
+<op text="modify"><DbDetails><Where>mes_id='%{mesconfig_vLst[mes_id]}'</Where></DbDetails><submit namelist="DbDetails" next="$this.mesconfig.mesconfigLst"/><assign name="$this.mesconfig.frmwndctrl" expr="%{this}"/></op>
+<op text="delete" needconfirm="1"><DbDetails>
+<DbTable>desoutter.mesconfig</DbTable>
+<Where>mes_id='%{mesconfig_vLst[mes_id]}'</Where>
+<queryFormat>delete from %{table} where %{where}</queryFormat></DbDetails>
+<submit namelist="DbDetails"/><submit/></op>
+</operator>
+<OnChanged>
+<assign name="pgcur_mesconfig" expr="js(%{mesconfig_vLst[currentpage]}+1)"/>
+<assign name="pgscb_mesconfig" expr="js(%{mesconfig_vLst[currentpage]}+1)" function="SetSel"/>
+</OnChanged></ListCtrl>
+</Ctrls></GroupBox>

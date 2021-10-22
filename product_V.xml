@@ -1,0 +1,20 @@
+﻿<WndTap Name="product_v" Text="product_v">
+<WndTaps>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="product_Ve.xml" popup="1"/>
+</WndTaps>
+<var name="searchtmpl"><product_name format="(p.product_name like '%%{opvalue}%')"/><product_code format="(p.product_code like '%%{opvalue}%')"/><actived format="p.actived is %{opvalue}"/><memo format="(p.memo like '%%{opvalue}%')"/><product_id format="(p.product_id like '%%{opvalue}%')"/><created_by format="(p.created_by like '%%{opvalue}%')"/><creation_date format="(p.creation_date between '%{creation_date[datetime]}' and '%{creation_date[datetime2]}')"/><last_update_by format="(p.last_update_by like '%%{opvalue}%')"/><last_update_date format="(p.last_update_date between '%{last_update_date[datetime]}' and '%{last_update_date[datetime2]}')"/><img_pos_screw format="(p.img_pos_screw like '%%{opvalue}%')"/></var>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\product.xml"/>
+<Ctrls><GroupBox  Name="GBproduct" id="product" Text="product" Size="100,100"><Ctrls>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="product_Vs.xml"/>
+<BR AutoHeight="1"/><GroupBox  Name="GBOPVproduct" Size="100,20" cols="xs12 sm6 md4"><Ctrls>
+<Button Text="addone" ToolTip="ttp_addone" Name="addone" Size="50,20">	<OnClick><submit next="$this.product.GBDEDITproduct" function="reset"/><assign name="$this.product.frmwndctrl" expr="%{$this.product_vLst}"/></OnClick>	</Button><TAB/>	
+<Button Text="reset" ToolTip="ttp_resetproduct" Name="resetproduct" Size="50,20">	<OnClick>	<submit next="GBDEDITproduct" function="reset"/>	</OnClick>	</Button><TAB/>	
+<Button Text="Search" ToolTip="ttp_gsearchproduct" Name="gsearchproduct" Size="50,20">	<OnClick>	
+<search next="product_vLst" listed="0" prefixwhere="0" prefixand="0" inputed="1">%{searchtmpl}</search><submit next="GBDEDITproduct" namelist="search" function="search"/>	
+<search next="records_product" listed="0" prefixwhere="1" prefixand="0"  inputed="1">%{searchtmpl}</search><submit next="GBDEDITproduct" namelist="search" function="search"/>	
+</OnClick></Button><TAB/></Ctrls></GroupBox>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="product_Vpg.xml"/>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="product_Vpgop.xml"/>
+<BR AutoHeight="1"/><xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="product_Vv.xml"/>
+</Ctrls></GroupBox>
+</Ctrls></WndTap>

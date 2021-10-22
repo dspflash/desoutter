@@ -1,0 +1,10 @@
+﻿<GroupBox cols="xs12 sm6 md4" Name="GBOPVproduct_screw"><Ctrls>
+<TAB/><Button Text="initial" ToolTip="ttp_initial" Name="initialproduct_screw" Size="50,20">
+<OnClick><submit next="product_screw_vLst" function="initial"/><submit next="records_product_screw" function="initial"/></OnClick></Button>
+<TAB/><Button Text="firstpage" Name="FPproduct_screw_vLst" Size="50,20">
+<OnClick><submit next="product_screw_vLst" function="GetPage(first)"/><submit next="records_product_screw"/></OnClick></Button>
+<Button Text="prepage" Name="PREproduct_screw_vLst" Size="50,20">
+<OnClick><submit next="product_screw_vLst" function="GetPage(Pre)"/></OnClick></Button>
+<Button Text="nextpage" Name="NPproduct_screw_vLst" Size="50,20">
+<OnClick><submit next="product_screw_vLst" function="GetPage(Next)"/></OnClick></Button>
+</Ctrls></GroupBox>

@@ -1,0 +1,18 @@
+﻿<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GBPGpsetlist"><Ctrls>
+<Label Align="Right" Text="Records" Name="lb_Records" Size="60,20"/>
+<TextBox Weight="30" ToolTip="ttp_records" Name="records_psetlist" Size="40,20" OnLoad="init" readonly="1">
+	<DbDetails fcsm="1">
+<Index>pset_id</Index>
+<DbTable>desoutter.psetlist p left join desoutter.modellist m on p.modellist_id=m.modellist_id</DbTable>
+<Data>count(*) records</Data>
+<Order>pset_id</Order><Queryformat>select %{data} from (select p.pset_id from %{dbtable} %{where} GROUP BY p.pset_id  ORDER BY p.pset_id) t</Queryformat></DbDetails>
+<OnEnchange>
+<assign name="pgs_psetlist" expr="js(Math.ceil(%{records_psetlist}/%{psetlist_vLst[countsperpage]}))"/>
+<assign name="pgscb_psetlist" expr="js('1~'+Math.ceil(%{records_psetlist}/%{psetlist_vLst[countsperpage]}))" function="setitems"/>
+</OnEnchange>
+</TextBox>
+<!--ComboBox Weight="60" ToolTip="ttp_pgs" Name="pgscb_psetlist" Size="60,20"><OnSelEndOK><submit next="psetlist_vLst" function="GetPage(%{pgscb_psetlist}-1)"/></OnSelEndOK></ComboBox-->
+<TextBox Weight="30" ToolTip="ttp_pgs" Name="pgs_psetlist" Size="30,20" readonly="1"/>
+<TextBox Weight="30" ToolTip="ttp_pgcur" Name="pgcur_psetlist" Size="30,20"/>
+<Button Text="go2Page" Name="go2pagepsetlist_vLst" Size="50,20"><OnClick><submit next="psetlist_vLst" function="GetPage(%{pgcur_psetlist}-1)"/></OnClick></Button>
+</Ctrls></GroupBox>

@@ -1,0 +1,20 @@
+﻿<GroupBox Name="GBDVposco" cols="xs12 sm12 md12 lg12"><Ctrls>
+<ListCtrl Name="posco_vLst" ToolTip="ttp_posco_v" Size="700,450" OnLoad="init" Heading="jobid,20;product_id,120;station_id,55;posco_id,55;" loadedclick="0">
+	<DbDetails >
+<Index>posco_id</Index>
+<DbTable>desoutter.posco p left join desoutter.product p0 on p.product_id=p0.product_id</DbTable>
+<Data>p.jobid,p0.product_name product_id,p.station_id,p.posco_id</Data>
+<Order>posco_id</Order></DbDetails>
+<operator refresh="1" initial="0" firstpage="0" prepage="0" nextpage="0">
+<op text="modify"><DbDetails><Where>posco_id='%{posco_vLst[posco_id]}'</Where></DbDetails><submit namelist="DbDetails" next="$this.posco.poscoLst"/><assign name="$this.posco.frmwndctrl" expr="%{this}"/></op>
+<op text="delete" needconfirm="1"><DbDetails>
+<DbTable>desoutter.posco</DbTable>
+<Where>posco_id='%{posco_vLst[posco_id]}'</Where>
+<queryFormat>delete from %{table} where %{where}</queryFormat></DbDetails>
+<submit namelist="DbDetails"/><submit/></op>
+</operator>
+<OnChanged>
+<assign name="pgcur_posco" expr="js(%{posco_vLst[currentpage]}+1)"/>
+<assign name="pgscb_posco" expr="js(%{posco_vLst[currentpage]}+1)" function="SetSel"/>
+</OnChanged></ListCtrl>
+</Ctrls></GroupBox>

@@ -1,0 +1,12 @@
+﻿<GroupBox Name="GBDVposco" cols="xs12 sm12 md12 lg12" visible="0"><Ctrls>
+<ListCtrl Name="poscoLst" ToolTip="ttp_posco" Size="70,20" visible="0" loadedclick="1">
+	<DbDetails fcsm="1">
+<Index>posco_id</Index>
+<DbTable>desoutter.posco</DbTable>
+<Data>jobid,product_id,station_id,posco_id</Data>
+<Order>posco_id</Order></DbDetails>
+<OnClick><assign name="product_id[product_id]" expr="%{poscoLst[product_id]}" function="SetSel"/>
+<if cond="'%{posco_id}'"><SetVisible name="insertposco" Visible="0"/><SetVisible name="modifyposco" Visible="1"/></if>
+</OnClick>
+</ListCtrl>
+</Ctrls></GroupBox>

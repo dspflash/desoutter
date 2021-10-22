@@ -1,0 +1,14 @@
+﻿<GroupBox Name="GBDEDITstation" text="Search" toggle="1"><Ctrls>
+<GroupBox Name="GB_station_name" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_station_name" Size="120,20" Text="station_name" Align="Right"/>
+<TextBox Name="station_name" Size="110,20" Text="" Weight="110" ToolTip="ttp_station_name"></TextBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_station_code" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_station_code" Size="120,20" Text="station_code" Align="Right"/>
+<TextBox Name="station_code" Size="110,20" Text="" Weight="110" ToolTip="ttp_station_code"></TextBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_posco_code" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_posco_code" Size="120,20" Text="posco_code" Align="Right"/>
+<TextBox Name="posco_code" Size="110,20" Text="" Weight="110" ToolTip="ttp_posco_code"></TextBox>
+</Ctrls></GroupBox>
+</Ctrls></GroupBox>

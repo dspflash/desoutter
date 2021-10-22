@@ -1,0 +1,13 @@
+﻿<WndTap Name="posco" Text="posco" Ver="2">
+<var name="refreshAfterEdit" expr="2"/>
+<var name="dataRequired" expr="jobid,product_id[product_id],station_id"/>
+<var name="dataRequireless" expr=""/>
+<xi:include href="lan\posco.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+<Ctrls>
+<GroupBox  Name="GBposco" id="posco" Text="posco" Size="100,100"><Ctrls>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="posco_GBDEDIT.xml"/>
+<BR AutoHeight="1"/><xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="posco_GBOPE.xml"/>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="posco_Vh.xml"/></Ctrls></GroupBox></Ctrls>
+	<OnChanged></OnChanged>
+	<OnActivate><SetVisible name="insertposco" Visible="1"/><SetVisible name="modifyposco" Visible="0"/></OnActivate>
+</WndTap>

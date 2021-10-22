@@ -1,0 +1,22 @@
+﻿<WndTap Name="product_pick" Text="product_Pick">
+<var name="searchtmpl"><product_name format="(p.product_name like '%%{opvalue}%')"/><product_code format="(p.product_code like '%%{opvalue}%')"/><actived format="p.actived is %{opvalue}"/><memo format="(p.memo like '%%{opvalue}%')"/><product_id format="(p.product_id like '%%{opvalue}%')"/><created_by format="(p.created_by like '%%{opvalue}%')"/><creation_date format="(p.creation_date between '%{creation_date[datetime]}' and '%{creation_date[datetime2]}')"/><last_update_by format="(p.last_update_by like '%%{opvalue}%')"/><last_update_date format="(p.last_update_date between '%{last_update_date[datetime]}' and '%{last_update_date[datetime2]}')"/><img_pos_screw format="(p.img_pos_screw like '%%{opvalue}%')"/></var>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\product.xml"/>
+<Ctrls><GroupBox  Name="GBproduct" id="product" Text="product" Size="100,100"><Ctrls>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="product_Vs.xml"/>
+<BR AutoHeight="1"/><GroupBox  Name="GBOPVproduct" Size="100,20" cols="xs12 sm6 md4"><Ctrls>
+<Button Text="reset" ToolTip="ttp_resetproduct" Name="resetproduct" Size="50,20">	<OnClick>	<submit next="GBDEDITproduct" function="reset"/>	</OnClick>	</Button><TAB/>	
+<Button Text="Search" ToolTip="ttp_gsearchproduct" Name="gsearchproduct" Size="50,20">	<OnClick>	
+<search next="product_vLst" listed="0" prefixwhere="0" prefixand="0" inputed="1">%{searchtmpl}</search><submit next="GBDEDITproduct" namelist="search" function="search"/>	
+</OnClick></Button><TAB/></Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox Name="GBDVproduct" cols="xs12 sm12 md12 lg12"><Ctrls>
+<ListCtrl Name="product_vLst" ToolTip="ttp_product_v" Size="700,450" Heading="product_name,250;product_code,100;actived,60;memo,640;product_id,55;created_by,55;creation_date,150;last_update_by,55;last_update_date,150;img_pos_screw,640;" loadedclick="0">
+	<DbDetails >
+<Index>product_id</Index>
+<DbTable>desoutter.product p</DbTable>
+<Data>p.product_name,p.product_code,p.actived,p.memo,p.product_id,p.created_by,p.creation_date,p.last_update_by,p.last_update_date,p.img_pos_screw</Data>
+<Order>product_id</Order></DbDetails>
+<OnClick><if cond="%{product_vLst[product_id]}"><DbDetails><Where>product_id='%{product_vLst[product_id]}'</Where></DbDetails><submit namelist="DbDetails" next="$parent.%{frmwndctrl}"/><submit function="onok"/></if></OnClick>
+</ListCtrl>
+</Ctrls></GroupBox>
+</Ctrls></GroupBox>
+</Ctrls></WndTap>

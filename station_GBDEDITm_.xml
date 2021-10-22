@@ -1,0 +1,46 @@
+﻿<GroupBox Name="GBDEDITstation"><Ctrls>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_station_name"><Ctrls>
+<Label Align="Right" Text="station_name" Name="lb_station_name" Size="60,20"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_station_name" Name="station_name" Size="170,20"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_station_code"><Ctrls>
+<Label Align="Right" Text="station_code" Name="lb_station_code" Size="60,20"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_station_code" Name="station_code" Size="170,20"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_desoutter_ip"><Ctrls>
+<Label Align="Right" Text="desoutter_ip" Name="lb_desoutter_ip" Size="60,20"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_desoutter_ip" Name="desoutter_ip" Size="170,20"/>
+</Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_desoutter_port"><Ctrls>
+<Label Align="Right" Text="desoutter_port" Name="lb_desoutter_port" Size="60,20"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_desoutter_port" Name="desoutter_port" Size="170,20"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_logfilefmt"><Ctrls>
+<Label Align="Right" Text="logfilefmt" Name="lb_logfilefmt" Size="60,20"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_logfilefmt" Name="logfilefmt" Size="170,20"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_logfilepath"><Ctrls>
+<Label Align="Right" Text="logfilepath" Name="lb_logfilepath" Size="60,20"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_logfilepath" Name="logfilepath" Size="170,20"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" overlap="pre" Name="GB_created_by" Visible="false"><Ctrls>
+<Label Align="Right" Text="created_by" overlap="pre" Name="lb_created_by" Size="60,20" Visible="false"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_created_by" overlap="pre" Name="created_by" Size="170,20" Visible="false"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" overlap="pre" Name="GB_creation_date" Visible="false"><Ctrls>
+<Label Align="Right" Text="creation_date" overlap="pre" Name="lb_creation_date" Size="60,20" Visible="false"/>
+<DateTime Weight="170" Text="" ToolTip="ttp_creation_date" overlap="pre" Name="creation_date" Size="170,20" Visible="false" Format="yyyy-MM-dd HH:mm:ss"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" overlap="pre" Name="GB_last_update_by" Visible="false"><Ctrls>
+<Label Align="Right" Text="last_update_by" overlap="pre" Name="lb_last_update_by" Size="60,20" Visible="false"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_last_update_by" overlap="pre" Name="last_update_by" Size="170,20" Visible="false"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" overlap="pre" Name="GB_last_update_date" Visible="false"><Ctrls>
+<Label Align="Right" Text="last_update_date" overlap="pre" Name="lb_last_update_date" Size="60,20" Visible="false"/>
+<DateTime Weight="170" Text="" ToolTip="ttp_last_update_date" overlap="pre" Name="last_update_date" Size="170,20" Visible="false" Format="yyyy-MM-dd HH:mm:ss"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" overlap="pre" Name="GB_station_id" Visible="false"><Ctrls>
+<Label Align="Right" Text="station_id" overlap="pre" Name="lb_station_id" readonly="true" Size="60,20" Visible="false"/>
+<TextBox Weight="170" Text="" ToolTip="ttp_station_id" overlap="pre" Name="station_id" readonly="true" Size="170,20" Visible="false"><OnEnChange><if cond="'%{station_id}'"><SetVisible name="insertstation" Visible="0"/><SetVisible name="modifystation" Visible="1"/><else/><SetVisible name="insertstation" Visible="1"/><SetVisible name="modifystation" Visible="0"/></if><if cond="'%{station_id}'"><DbDetails><Where>p.station_id='%{station_id}'</Where></DbDetails><submit next="product_screw_vLst" namelist="DbDetails"/><else/><submit next="product_screw_vLst" function="resetcontent"/></if></OnEnChange></TextBox>
+</Ctrls></GroupBox>
+</Ctrls></GroupBox>

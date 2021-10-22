@@ -1,0 +1,26 @@
+﻿<GroupBox Name="GBDEDITmodellist" text="Search" toggle="1"><Ctrls>
+<GroupBox Name="GB_modellist_name" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_modellist_name" Size="120,20" Text="modellist_name" Align="Right"/>
+<TextBox Name="modellist_name" Size="110,20" Text="" Weight="110" ToolTip="ttp_modellist_name"></TextBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_product_id" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_product_id" Size="120,20" Text="product_id" Align="Right"  onload="init"/>
+<ComboBox Name="product_id" Size="90,100" Text="" Weight="90"  ToolTip="ttp_product_id"  onload="init">
+	<DbDetails>
+<Index>product_id</Index>
+<DbTable>desoutter.product</DbTable>
+<Data>product_name,product_id</Data>
+<Where></Where>
+<queryFormat></queryFormat></DbDetails></ComboBox>
+<MagicCtrl Name="refreshproduct_id" Link="tip:刷新" images=",data/refresh.png" button="type:0" Size="20,20"><OnClick><submit next="product_id"/></OnClick></MagicCtrl>\r\n</Ctrls></GroupBox>
+<GroupBox Name="GB_station_id" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_station_id" Size="120,20" Text="station_id" Align="Right"  onload="init"/>
+<ComboBox Name="station_id" Size="90,100" Text="" Weight="90"  ToolTip="ttp_station_id"  onload="init">
+	<DbDetails>
+<Index>station_id</Index>
+<DbTable>desoutter.station</DbTable>
+<Data>station_name,station_id</Data>
+<Where></Where>
+<queryFormat></queryFormat></DbDetails></ComboBox>
+<MagicCtrl Name="refreshstation_id" Link="tip:刷新" images=",data/refresh.png" button="type:0" Size="20,20"><OnClick><submit next="station_id"/></OnClick></MagicCtrl>\r\n</Ctrls></GroupBox>
+</Ctrls></GroupBox>

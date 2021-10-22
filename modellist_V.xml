@@ -1,0 +1,20 @@
+﻿<WndTap Name="modellist_v" Text="modellist_v">
+<WndTaps>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="modellist_Ve.xml" popup="1"/>
+</WndTaps>
+<var name="searchtmpl"><modellist_name format="(m.modellist_name like '%%{opvalue}%')"/><product_id format="m.product_id='%{opvalue}'"/><station_id format="m.station_id='%{opvalue}'"/><created_by format="(m.created_by like '%%{opvalue}%')"/><creation_date format="(m.creation_date between '%{creation_date[datetime]}' and '%{creation_date[datetime2]}')"/><last_update_by format="(m.last_update_by like '%%{opvalue}%')"/><last_update_date format="(m.last_update_date between '%{last_update_date[datetime]}' and '%{last_update_date[datetime2]}')"/><modellist_id format="(m.modellist_id like '%%{opvalue}%')"/></var>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\modellist.xml"/>
+<Ctrls><GroupBox  Name="GBmodellist" id="modellist" Text="modellist" Size="100,100"><Ctrls>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="modellist_Vs.xml"/>
+<BR AutoHeight="1"/><GroupBox  Name="GBOPVmodellist" Size="100,20" cols="xs12 sm6 md4"><Ctrls>
+<Button Text="addone" ToolTip="ttp_addone" Name="addone" Size="50,20">	<OnClick><submit next="$this.modellist.GBDEDITmodellist" function="reset"/><assign name="$this.modellist.frmwndctrl" expr="%{$this.modellist_vLst}"/></OnClick>	</Button><TAB/>	
+<Button Text="reset" ToolTip="ttp_resetmodellist" Name="resetmodellist" Size="50,20">	<OnClick>	<submit next="GBDEDITmodellist" function="reset"/>	</OnClick>	</Button><TAB/>	
+<Button Text="Search" ToolTip="ttp_gsearchmodellist" Name="gsearchmodellist" Size="50,20">	<OnClick>	
+<search next="modellist_vLst" listed="0" prefixwhere="0" prefixand="0" inputed="1">%{searchtmpl}</search><submit next="GBDEDITmodellist" namelist="search" function="search"/>	
+<search next="records_modellist" listed="0" prefixwhere="1" prefixand="0"  inputed="1">%{searchtmpl}</search><submit next="GBDEDITmodellist" namelist="search" function="search"/>	
+</OnClick></Button><TAB/></Ctrls></GroupBox>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="modellist_Vpg.xml"/>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="modellist_Vpgop.xml"/>
+<BR AutoHeight="1"/><xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="modellist_Vv.xml"/>
+</Ctrls></GroupBox>
+</Ctrls></WndTap>

@@ -1,0 +1,37 @@
+﻿<GroupBox cols="xs12 sm6 md4" Name="GBOPEstation_op_v" Size="100,100"><Ctrls>
+<Button sqlpkinsert="" Text="create" ToolTip="ttp_createstation_op_v" Name="insertstation_op_v" Size="50,20">
+<OnClick>
+<DbDetails mode="insert" fcsm="1">
+<DbTable>desoutter.station_op_v</DbTable>
+<Required>%{dataRequired}</Required>
+<Requireless>%{dataRequireless}</Requireless>
+<Data>station_code,station_name,desoutter_ip,desoutter_port,logfilefmt,logfilepath,modellist_name[modellist_id],product_code,product_name,memo,station_id,modellist_id,product_id</Data>
+<DataEx/>
+<queryFormat>insert into %{table} %{data}</queryFormat></DbDetails>
+<submit namelist="DbDetails"/><if cond="!%{insertstation_op_v[broke]}"><if cond="%{refreshAfterEdit}==1"><submit next="station_op_vLst" delay="1000"/><elseif cond="%{refreshAfterEdit}==2"/><if cond="1"><if cond="'%{frmwndctrl}'"><submit next="%{frmwndctrl}" delay="1000"/><else/><submit next="$parent.station_op_v_vLst" delay="1000"/></if></if></if></if>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="modify" ToolTip="ttp_modifystation_op_v" Name="modifystation_op_v" Size="50,20">
+<OnClick>
+<DbDetails mode="update" fcsm="1">
+<DbTable>desoutter.station_op_v</DbTable>
+<Required>%{dataRequired}</Required>
+<Requireless>%{dataRequireless}</Requireless>
+<Data>station_code,station_name,desoutter_ip,desoutter_port,logfilefmt,logfilepath,modellist_name[modellist_id],product_code,product_name,memo,station_id,modellist_id,product_id</Data>
+<DataEx/>
+<Where>station_code='%{station_op_vLst[station_code]}' and station_name='%{station_op_vLst[station_name]}' and desoutter_ip='%{station_op_vLst[desoutter_ip]}' and desoutter_port='%{station_op_vLst[desoutter_port]}' and logfilefmt='%{station_op_vLst[logfilefmt]}' and logfilepath='%{station_op_vLst[logfilepath]}' and modellist_name='%{station_op_vLst[modellist_name]}' and product_code='%{station_op_vLst[product_code]}' and product_name='%{station_op_vLst[product_name]}' and memo='%{station_op_vLst[memo]}' and station_id='%{station_op_vLst[station_id]}' and modellist_id='%{station_op_vLst[modellist_id]}' and product_id='%{station_op_vLst[product_id]}'</Where>
+<queryFormat>update %{table} set %{data} where %{where}</queryFormat></DbDetails>
+<submit namelist="DbDetails"/><if cond="!%{modifystation_op_v[broke]}"><if cond="%{refreshAfterEdit}==1"><submit next="station_op_vLst" delay="1000"/><elseif cond="%{refreshAfterEdit}==2"/><if cond="'%{frmwndctrl}'"><submit next="%{frmwndctrl}" delay="1000"/><else/><submit next="$parent.station_op_v_vLst" delay="1000"/></if></if></if>
+	</OnClick>
+</Button><TAB/>
+<Button Text="reset" ToolTip="ttp_resetstation_op_v" Name="resetstation_op_v" Size="50,20">
+<OnClick>
+<submit next="GBDEDITstation_op_v" function="reset"/>
+	</OnClick>
+</Button><TAB/>
+<Button Text="Search" ToolTip="ttp_gsearchstation_op_v" Name="gsearchstation_op_v" Size="50,20" visible="false">
+<OnClick>
+<search next="station_op_vLst" listed="0" prefixwhere="0" prefixand="0" inputed="1"/><submit next="GBDEDITstation_op_v" namelist="search" function="search"/>
+	</OnClick>
+</Button><TAB/>
+</Ctrls></GroupBox>

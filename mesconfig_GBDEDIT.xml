@@ -1,0 +1,42 @@
+﻿<GroupBox Name="GBDEDITmesconfig"><Ctrls>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_mesapi"><Ctrls>
+<Label Align="Right" Text="mesapi" Name="lb_mesapi" Size="180,20"/>
+<TextBox Weight="50" Text="" ToolTip="ttp_mesapi" Name="mesapi" Size="50,20"/>
+</Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_customer"><Ctrls>
+<Label Align="Right" Text="customer" Name="lb_customer" Size="180,20"/>
+<TextBox Weight="50" Text="" ToolTip="ttp_customer" Name="customer" Size="50,20"/>
+</Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_division"><Ctrls>
+<Label Align="Right" Text="division" Name="lb_division" Size="180,20"/>
+<TextBox Weight="50" Text="" ToolTip="ttp_division" Name="division" Size="50,20"/>
+</Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_assemblynumber"><Ctrls>
+<Label Align="Right" Text="assemblynumber" Name="lb_assemblynumber" Size="180,20"/>
+<TextBox Weight="50" Text="" ToolTip="ttp_assemblynumber" Name="assemblynumber" Size="50,20"/>
+</Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_testername"><Ctrls>
+<Label Align="Right" Text="testername" Name="lb_testername" Size="180,20"/>
+<TextBox Weight="50" Text="" ToolTip="ttp_testername" Name="testername" Size="50,20"/>
+</Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_testprocess"><Ctrls>
+<Label Align="Right" Text="testprocess" Name="lb_testprocess" Size="180,20"/>
+<TextBox Weight="50" Text="" ToolTip="ttp_testprocess" Name="testprocess" Size="50,20"/>
+</Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_boardtype"><Ctrls>
+<Label Align="Right" Text="boardtype" Name="lb_boardtype" Size="180,20"/>
+<TextBox Weight="50" Text="" ToolTip="ttp_boardtype" Name="boardtype" Size="50,20"/>
+</Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox cols="xs12 sm6 md4" Multiline="0" Name="GB_assemblyrevision"><Ctrls>
+<Label Align="Right" Text="assemblyrevision" Name="lb_assemblyrevision" Size="180,20"/>
+<TextBox Weight="50" Text="" ToolTip="ttp_assemblyrevision" Name="assemblyrevision" Size="50,20"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" overlap="pre" Name="GB_station_id" Visible="false"><Ctrls>
+<Label Align="Right" Text="station_id" overlap="pre" Name="lb_station_id" readonly="true" Size="180,20" Visible="false"/>
+<TextBox Weight="50" Text="" ToolTip="ttp_station_id" overlap="pre" Name="station_id" readonly="true" Size="50,20" Visible="false"/>
+</Ctrls></GroupBox>
+<GroupBox cols="xs12 sm6 md4" Multiline="0" overlap="pre" Name="GB_mes_id" Visible="false"><Ctrls>
+<Label Align="Right" Text="mes_id" overlap="pre" Name="lb_mes_id" readonly="true" Size="180,20" Visible="false"/>
+<TextBox Weight="50" Text="" ToolTip="ttp_mes_id" overlap="pre" Name="mes_id" readonly="true" Size="50,20" Visible="false"><OnEnChange><if cond="'%{mes_id}'"><SetVisible name="insertmesconfig" Visible="0"/><SetVisible name="modifymesconfig" Visible="1"/><else/><SetVisible name="insertmesconfig" Visible="1"/><SetVisible name="modifymesconfig" Visible="0"/></if></OnEnChange></TextBox>
+</Ctrls></GroupBox>
+</Ctrls></GroupBox>

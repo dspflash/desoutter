@@ -1,0 +1,50 @@
+﻿<GroupBox cols="xs12 sm6 md4" Name="GBOPEproduct_screw" Size="100,100"><Ctrls>
+<Button sqlpkinsert="screw_id" Text="create" ToolTip="ttp_createproduct_screw" Name="insertproduct_screw" Size="50,20">
+<OnClick>
+<DbDetails mode="insert" fcsm="1">
+<DbTable>desoutter.product_screw</DbTable>
+<Required>%{dataRequired}</Required>
+<Requireless>%{dataRequireless}</Requireless>
+<Data>product_id[product_id],screw_pos,pset,psetre,station_id</Data>
+<DataEx/>
+<queryFormat>insert into %{table} %{data}</queryFormat></DbDetails>
+<submit namelist="DbDetails"/><if cond="!%{insertproduct_screw[broke]}"><if cond="%{refreshAfterEdit}==1"><submit next="product_screwLst" delay="1000"/><elseif cond="%{refreshAfterEdit}==2"/><if cond="1"><if cond="'%{frmwndctrl}'"><submit next="%{frmwndctrl}" delay="1000"/><else/><submit next="$parent.product_screw_vLst" delay="1000"/></if></if></if></if>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="modify" ToolTip="ttp_modifyproduct_screw" Name="modifyproduct_screw" Size="50,20">
+<OnClick>
+<DbDetails mode="update" fcsm="1">
+<DbTable>desoutter.product_screw</DbTable>
+<Required>%{dataRequired}</Required>
+<Requireless>%{dataRequireless}</Requireless>
+<Data>product_id[product_id],screw_pos,pset,psetre</Data>
+<DataEx/>
+<Where>screw_id='%{screw_id}'</Where>
+<queryFormat>update %{table} set %{data} where %{where}</queryFormat></DbDetails>
+<submit namelist="DbDetails"/><if cond="!%{modifyproduct_screw[broke]}"><if cond="%{refreshAfterEdit}==1"><submit next="product_screwLst" delay="1000"/><elseif cond="%{refreshAfterEdit}==2"/><if cond="'%{frmwndctrl}'"><submit next="%{frmwndctrl}" delay="1000"/><else/><submit next="$parent.product_screw_vLst" delay="1000"/></if></if></if>
+	</OnClick>
+</Button><TAB/>
+<Button sqlpkinsert="screw_id" Text="create BAT" ToolTip="ttp_createproduct_screw" Name="insertproduct_screws" Size="100,20">
+<OnClick>
+<DbDetails mode="insert" fcsm="1">
+<DbTable>desoutter.product_screw</DbTable>
+<Required>%{dataRequired}</Required>
+<Requireless>%{dataRequireless}</Requireless>
+<Data>product_id[product_id],screw_pos,pset,psetre,station_id</Data>
+<DataEx/>
+<queryFormat>INSERT IGNORE INTO desoutter.product_screw (product_id,screw_pos,pset,psetre,station_id)
+SELECT %{product_id[product_id]},@ROW:=@ROW+1 rownum,%{pset},%{psetre},%{station_id} FROM desoutter.desind a,(SELECT @ROW:=0) b WHERE @ROW&lt;%{screw_pos}</queryFormat></DbDetails>
+<submit namelist="DbDetails"/><if cond="!%{insertproduct_screw[broke]}"><if cond="%{refreshAfterEdit}==1"><submit next="product_screwLst" delay="1000"/><elseif cond="%{refreshAfterEdit}==2"/><if cond="1"><if cond="'%{frmwndctrl}'"><submit next="%{frmwndctrl}" delay="1000"/><else/><submit next="$parent.product_screw_vLst" delay="1000"/></if></if></if></if>
+	</OnClick>
+	</Button><TAB/>
+<Button Text="reset" ToolTip="ttp_resetproduct_screw" Name="resetproduct_screw" Size="50,20">
+<OnClick>
+<submit next="GBDEDITproduct_screw" function="reset"/>
+	</OnClick>
+</Button><TAB/>
+<Button Text="Search" ToolTip="ttp_gsearchproduct_screw" Name="gsearchproduct_screw" Size="50,20" visible="false">
+<OnClick>
+<search next="product_screwLst" listed="0" prefixwhere="0" prefixand="0" inputed="1"/><submit next="GBDEDITproduct_screw" namelist="search" function="search"/>
+	</OnClick>
+</Button><TAB/>
+</Ctrls></GroupBox>

@@ -1,0 +1,24 @@
+﻿<GroupBox Name="GBDEDITproduct_screw" text="Search" toggle="1"><Ctrls>
+<GroupBox Name="GB_product_id" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_product_id" Size="60,20" Text="product_id" Align="Right"  onload="init"/>
+<ComboBox Name="product_id" Size="150,100" Text="" Weight="150"  ToolTip="ttp_product_id"  onload="init">
+	<DbDetails>
+<Index>product_id</Index>
+<DbTable>desoutter.product</DbTable>
+<Data>product_name,product_id</Data>
+<Where>actived</Where>
+<queryFormat></queryFormat></DbDetails></ComboBox>
+<MagicCtrl Name="refreshproduct_id" Link="tip:刷新" images=",data/refresh.png" button="type:0" Size="20,20"><OnClick><submit next="product_id"/></OnClick></MagicCtrl>\r\n</Ctrls></GroupBox>
+<GroupBox Name="GB_screw_pos" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_screw_pos" Size="60,20" Text="screw_pos" Align="Right"/>
+<TextBox Name="screw_pos" Size="170,20" Text="" Weight="170" ToolTip="ttp_screw_pos"></TextBox>
+</Ctrls></GroupBox>
+<GroupBox Name="GB_pset" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_pset" Size="60,20" Text="pset" Align="Right"/>
+<TextBox Name="pset" Size="170,20" Text="" Weight="170" ToolTip="ttp_pset"></TextBox>
+</Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox Name="GB_psetre" Multiline="0" cols="xs12 sm6 md4"><Ctrls>
+<Label Name="lb_psetre" Size="60,20" Text="psetre" Align="Right"/>
+<TextBox Name="psetre" Size="170,20" Text="" Weight="170" ToolTip="ttp_psetre"></TextBox>
+</Ctrls></GroupBox>
+</Ctrls></GroupBox>

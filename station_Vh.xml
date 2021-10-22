@@ -1,0 +1,12 @@
+﻿<GroupBox Name="GBDVstation" cols="xs12 sm12 md12 lg12" visible="0"><Ctrls>
+<ListCtrl Name="stationLst" ToolTip="ttp_station" Size="70,20" visible="0" loadedclick="1">
+	<DbDetails fcsm="1">
+<Index>station_id</Index>
+<DbTable>desoutter.station</DbTable>
+<Data>station_name,station_code,posco_code,desoutter_ip,desoutter_port,logfilefmt,logfilepath,created_by,creation_date,last_update_by,last_update_date,station_id</Data>
+<Order>station_id</Order></DbDetails>
+<OnClick>
+<if cond="'%{station_id}'"><SetVisible name="insertstation" Visible="0"/><SetVisible name="modifystation" Visible="1"/></if>
+</OnClick>
+</ListCtrl>
+</Ctrls></GroupBox>

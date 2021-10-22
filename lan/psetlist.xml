@@ -1,0 +1,40 @@
+﻿<Language name="psetlist">
+<Lang name="psetlist" value="Psetlist"/>
+<Lang name="psetlist_v" value="Psetlist"/>
+<Lang name="TabEditpsetlist" value="Psetlist Edit"/>
+<Lang name="TabViewpsetlist" value="Psetlist View"/>
+<Lang name="pset_no" value="Pset No"/>
+<Lang name="ttp_pset_no" value="Pset No"/>
+<Lang name="pset_batchsize" value="Number"/>
+<Lang name="ttp_pset_batchsize" value="Number"/>
+<Lang name="is4redo" value="Rework"/>
+<Lang name="ttp_is4redo" value="Rework"/>
+<Lang name="modellist_id" value="Modellist_id"/>
+<Lang name="modellist" value="Modellist"/>
+<Lang name="ttp_modellist_id" value=""/>
+<Lang name="created_by" value="Created By"/>
+<Lang name="ttp_created_by" value="Created By"/>
+<Lang name="creation_date" value="Creation Date"/>
+<Lang name="ttp_creation_date" value="Creation Date"/>
+<Lang name="last_update_by" value="Update By"/>
+<Lang name="ttp_last_update_by" value="Update By"/>
+<Lang name="last_update_date" value="Update Date"/>
+<Lang name="ttp_last_update_date" value="Update Date"/>
+<Lang name="pset_id" value="Pset_id"/>
+<Lang name="ttp_pset_id" value="Pset_id"/>
+<Lang name="ttp_operationpsetlist" value=""/>
+<Lang name="ttp_createpsetlist" value=""/>
+<Lang name="ttp_modifypsetlist" value=""/>
+<Lang name="ttp_resetpsetlist" value=""/>
+<Lang name="ttp_deletepsetlist" value=""/>
+<Lang name="ttp_refreshpsetlist" value=""/>
+<Lang name="operation" value=""/>
+<Lang name="create" value=""/>
+<Lang name="modify" value=""/>
+<Lang name="reset" value=""/>
+<Lang name="delete" value=""/>
+<Lang name="refresh" value=""/>
+<Lang name="firstpage" value=""/>
+<Lang name="prepage" value=""/>
+<Lang name="nextpage" value=""/>
+</Language>

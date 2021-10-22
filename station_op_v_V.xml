@@ -1,0 +1,20 @@
+﻿<WndTap Name="station_op_v_v" Text="station_op_v_v">
+<WndTaps>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="station_op_v_Ve.xml" popup="1"/>
+</WndTaps>
+<var name="searchtmpl"><station_code format="(s.station_code like '%%{opvalue}%')"/><station_name format="(s.station_name like '%%{opvalue}%')"/><desoutter_ip format="(s.desoutter_ip like '%%{opvalue}%')"/><desoutter_port format="(s.desoutter_port like '%%{opvalue}%')"/><logfilefmt format="(s.logfilefmt like '%%{opvalue}%')"/><logfilepath format="(s.logfilepath like '%%{opvalue}%')"/><memo format="(s.memo like '%%{opvalue}%')"/><station_id format="(s.station_id like '%%{opvalue}%')"/><modellist_id format="(s.modellist_id like '%%{opvalue}%')"/><product_id format="(s.product_id like '%%{opvalue}%')"/></var>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\station_op_v.xml"/>
+<Ctrls><GroupBox  Name="GBstation_op_v" id="station_op_v" Text="station_op_v" Size="100,100"><Ctrls>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="station_op_v_Vs.xml"/>
+<BR AutoHeight="1"/><GroupBox  Name="GBOPVstation_op_v" Size="100,20" cols="xs12 sm6 md4"><Ctrls>
+<Button Text="addone" ToolTip="ttp_addone" Name="addone" Size="50,20">	<OnClick><submit next="$this.station_op_v.GBDEDITstation_op_v" function="reset"/><assign name="$this.station_op_v.frmwndctrl" expr="%{$this.station_op_v_vLst}"/></OnClick>	</Button><TAB/>	
+<Button Text="reset" ToolTip="ttp_resetstation_op_v" Name="resetstation_op_v" Size="50,20">	<OnClick>	<submit next="GBDEDITstation_op_v" function="reset"/>	</OnClick>	</Button><TAB/>	
+<Button Text="Search" ToolTip="ttp_gsearchstation_op_v" Name="gsearchstation_op_v" Size="50,20">	<OnClick>	
+<search next="station_op_v_vLst" listed="0" prefixwhere="0" prefixand="0" inputed="1">%{searchtmpl}</search><submit next="GBDEDITstation_op_v" namelist="search" function="search"/>	
+<search next="records_station_op_v" listed="0" prefixwhere="1" prefixand="0"  inputed="1">%{searchtmpl}</search><submit next="GBDEDITstation_op_v" namelist="search" function="search"/>	
+</OnClick></Button><TAB/></Ctrls></GroupBox>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="station_op_v_Vpg.xml"/>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="station_op_v_Vpgop.xml"/>
+<BR AutoHeight="1"/><xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="station_op_v_Vv.xml"/>
+</Ctrls></GroupBox>
+</Ctrls></WndTap>

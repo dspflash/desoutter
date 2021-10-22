@@ -1,0 +1,18 @@
+﻿<GroupBox Name="GBDVposco" cols="xs12 sm12 md12 lg12"><Ctrls>
+<ListCtrl Name="posco_vLst" ToolTip="ttp_posco_v" Size="700,450" Heading="jobid,20;screw_id,120;station_id,55;posco_id,55;" loadedclick="0">
+	<DbDetails >
+<Index>posco_id</Index>
+<DbTable>desoutter.posco p left join desoutter.product_screw p0 on p.screw_id=p0.screw_id</DbTable>
+<Data>p.jobid,p0.screw_pos screw_id,p.station_id,p.posco_id</Data>
+<Order>posco_id</Order></DbDetails>
+<operator refresh="1" initial="0" firstpage="0" prepage="0" nextpage="0">
+<op text="addone" mustselected="0"><if cond="!%{station_id}"><alert expr="station_id is Empty!"/><else/><submit next="$parent.posco.GBDEDITposco" function="reset"/><assign name="$parent.posco.station_id" expr="%{station_id}"/><assign name="$parent.posco.frmwndctrl" expr="%{this}"/></if></op>
+<op text="modify"><DbDetails><Where>posco_id='%{posco_vLst[posco_id]}'</Where></DbDetails><submit namelist="DbDetails" next="$parent.posco.poscoLst"/><assign name="$parent.posco.frmwndctrl" expr="%{this}"/></op>
+<op text="delete" needconfirm="1"><DbDetails>
+<DbTable>desoutter.posco</DbTable>
+<Where>posco_id='%{posco_vLst[posco_id]}'</Where>
+<queryFormat>delete from %{table} where %{where}</queryFormat></DbDetails>
+<submit namelist="DbDetails"/><submit/></op>
+</operator>
+</ListCtrl>
+</Ctrls></GroupBox>

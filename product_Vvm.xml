@@ -1,0 +1,21 @@
+﻿<GroupBox Name="GBDVproduct" cols="xs12 sm12 md12 lg12"><Ctrls>
+<ListCtrl Name="product_vLst" ToolTip="ttp_product_v" Size="700,450" OnLoad="init" Heading="product_name,250;product_code,100;actived,50;memo,640;img_pos_screw,120;created_by,55;creation_date,150;last_update_by,55;last_update_date,150;" loadedclick="0">
+	<DbDetails >
+<Index>product_id</Index>
+<DbTable>desoutter.product p</DbTable>
+<Data>p.product_name,p.product_code,p.actived,p.memo,img_pos_screw ,p.created_by,p.creation_date,p.last_update_by,p.last_update_date,p.product_id</Data>
+<Order>product_id</Order></DbDetails>
+<operator refresh="1" initial="0" firstpage="0" prepage="0" nextpage="0">
+<op text="modify"><DbDetails><Where>product_id='%{product_vLst[product_id]}'</Where></DbDetails><submit namelist="DbDetails" next="$this.product.productLst"/><assign name="$this.product.frmwndctrl" expr="%{this}"/></op>
+<op text="attach"><assign name="topmost" expr="SendFile:,filter=*.*|*.*|,dir=file/desoutter/productimg,localdir=,query=update product set img_pos_screw='%{_upload_file_name}' where product_id='%{product_vLst[product_id]}'"/><submit/></op>
+<op text="delete" needconfirm="1"><DbDetails>
+<DbTable>desoutter.product</DbTable>
+<Where>product_id='%{product_vLst[product_id]}'</Where>
+<queryFormat>delete from %{table} where %{where}</queryFormat></DbDetails>
+<submit namelist="DbDetails"/><submit/></op>
+</operator>
+<OnChanged>
+<assign name="pgcur_product" expr="js(%{product_vLst[currentpage]}+1)"/>
+<assign name="pgscb_product" expr="js(%{product_vLst[currentpage]}+1)" function="SetSel"/>
+</OnChanged></ListCtrl>
+</Ctrls></GroupBox>

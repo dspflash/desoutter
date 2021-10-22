@@ -1,0 +1,22 @@
+﻿<WndTap Name="posco_pick" Text="posco_Pick">
+<var name="searchtmpl"><jobid format="(p.jobid like '%%{opvalue}%')"/><product_id format="p.product_id='%{opvalue}'"/><station_id format="(p.station_id like '%%{opvalue}%')"/><posco_id format="(p.posco_id like '%%{opvalue}%')"/></var>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\posco.xml"/>
+<Ctrls><GroupBox  Name="GBposco" id="posco" Text="posco" Size="100,100"><Ctrls>
+<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="posco_Vs.xml"/>
+<BR AutoHeight="1"/><GroupBox  Name="GBOPVposco" Size="100,20" cols="xs12 sm6 md4"><Ctrls>
+<Button Text="reset" ToolTip="ttp_resetposco" Name="resetposco" Size="50,20">	<OnClick>	<submit next="GBDEDITposco" function="reset"/>	</OnClick>	</Button><TAB/>	
+<Button Text="Search" ToolTip="ttp_gsearchposco" Name="gsearchposco" Size="50,20">	<OnClick>	
+<search next="posco_vLst" listed="0" prefixwhere="0" prefixand="0" inputed="1">%{searchtmpl}</search><submit next="GBDEDITposco" namelist="search" function="search"/>	
+</OnClick></Button><TAB/></Ctrls></GroupBox>
+<BR AutoHeight="1"/><GroupBox Name="GBDVposco" cols="xs12 sm12 md12 lg12"><Ctrls>
+<ListCtrl Name="posco_vLst" ToolTip="ttp_posco_v" Size="700,450" Heading="jobid,20;product_id,120;station_id,55;posco_id,55;" loadedclick="0">
+	<DbDetails >
+<Index>posco_id</Index>
+<DbTable>desoutter.posco p left join desoutter.product p0 on p.product_id=p0.product_id</DbTable>
+<Data>p.jobid,p0.product_name product_id,p.station_id,p.posco_id</Data>
+<Order>posco_id</Order></DbDetails>
+<OnClick><if cond="%{posco_vLst[posco_id]}"><DbDetails><Where>posco_id='%{posco_vLst[posco_id]}'</Where></DbDetails><submit namelist="DbDetails" next="$parent.%{frmwndctrl}"/><submit function="onok"/></if></OnClick>
+</ListCtrl>
+</Ctrls></GroupBox>
+</Ctrls></GroupBox>
+</Ctrls></WndTap>
