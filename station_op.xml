@@ -77,13 +77,13 @@
 		</if-->
 	<elseif cond="'%{prod_piece_screw[pset]}'"/>
 		<if cond="(!('%{prod_piece_screw[pset]}'=='%{controller_pset}')||(%{prod_piece_screw[screw_pos]}==1))">
-		<mqtt function="publish" expr="15" topic="devices/%{station_code}/psetdo"/>
 		<mqtt function="publish" expr="0" topic="devices/%{station_code}/poscostart"/>
 		<mqtt function="publish" expr="1" topic="devices/%{station_code}/poscoreset"/>
-		<mqtt function="publish" delay="2000" expr="0" topic="devices/%{station_code}/poscoreset"/>
+		<mqtt function="publish" expr="15" topic="devices/%{station_code}/psetdo"/>
+		<mqtt function="publish" delay="2000" expr="%{prod_piece_screw[pset]}" topic="devices/%{station_code}/psetdo"/>
+		<mqtt function="publish" expr="0" topic="devices/%{station_code}/poscoreset"/>
 		<mqtt function="publish" delay="2000" expr="1" topic="devices/%{station_code}/poscostart"/>
 		<mqtt function="publish" delay="2000" expr="0" topic="devices/%{station_code}/poscostart"/>
-		<mqtt function="publish" expr="%{prod_piece_screw[pset]}" topic="devices/%{station_code}/psetdo"/>
 		</if>
 		<submit next="mqtt_publish_entool" function="click"/>
 	</if>

@@ -63,7 +63,7 @@
 <mqtt function="publish" expr="%{station_op_vLst[mesapi]}?CustomerName=%{station_op_vLst[customer]}&Division=%{station_op_vLst[division]}&SerialNumber=%{serialnumber}&AssemblyNumber=%{product_code}&TesterName=%{testername}&ProcessStep=%{processstep}" topic="devices/%{station_code}/mesapi"/>
 <assign name="mesapihttp" expr="ihttp:%{station_op_vLst[mesapi]}?CustomerName=%{station_op_vLst[customer]}&Division=%{station_op_vLst[division]}&SerialNumber=%{serialnumber}&AssemblyNumber=%{product_code}&TesterName=%{testername}&ProcessStep=%{processstep}" function=""/>
 <!--assign name="$this.mesapi.meswb" expr="http://3ucs.com/logxflyinfo?sQMType=QM1&sCustomer=1&sSerialNo=%{serialnumber}&sTester=2&sProcessStep=3" function="Navigate"/-->
-<else/><assign name="mesapihttp" expr="mesapitest"/></if>
+<else/><assign delay="1000" name="mesapihttp" expr="mesapitest"/></if>
 <else/><alert expr="产品不符"/><assign name="status_memo" expr="产品不符"/>
 </if></if>
 </if></OnEnChange></TextBox>

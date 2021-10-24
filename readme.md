@@ -1,4 +1,4 @@
-﻿## 3UCS ERP系统	（http://xbs.3ucs.com）
+﻿## 3UCS 智联装配（工业互联网）	（http://3ucs.com/x/xworks）
 源代码在xbs文件夹中，而安装包带有完整源代码，安装完成后源代码在安装目录下（xbs文件夹，直接下载release的exe安装包，简单方便）。
 
 现在您可以使用xone客户端了，超轻量级云应用客户端，高颜值高效灵活稳定（http://3ucs.com/dl56.html）
