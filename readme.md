@@ -1,7 +1,7 @@
 ﻿## 3UCS 智联装配（工业互联网）	(http://3ucs.com/x/xworks)
 源代码在xbs文件夹中，而安装包带有完整源代码，安装完成后源代码在安装目录下（xbs文件夹，直接下载release的exe安装包，简单方便）。
 
-现在您可以使用xone客户端了，超轻量级云应用客户端，高颜值高效灵活稳定（http://3ucs.com/dl56.html）
+现在您可以使用xone客户端了，超轻量级云应用客户端，高颜值高效灵活稳定(http://3ucs.com/dl56.html)
 
 ## 简介
 3UCS desoutter是开源的C/S、B/S双架构工厂装配线上智能化装配系统，旨在帮助工厂通过工业互联网技术，实现产品装配工作的提质增效降成本。
@@ -14,7 +14,7 @@
 - 多语言支持（可修改成任意语言版本，修改语言包即可）
 
 ## 依赖性
-- 3UCS xPlus（http://3ucs.com/x/
+- 3UCS xPlus (http://3ucs.com/x/)
 - MySQL
 
 ## 演示地址及截图：http://xbs.3ucs.com
