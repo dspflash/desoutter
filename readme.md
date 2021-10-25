@@ -22,7 +22,7 @@
 - MySQL
 
 ## 演示地址及截图：http://xbs.3ucs.com
-![](imgs/ad01.jpg).
+![](https://dspflash.github.io/res/desoutter/desoutter.gif).
 
 ![](imgs/xbsmobile.gif).
 
