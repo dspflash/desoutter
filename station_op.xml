@@ -1,5 +1,5 @@
 ﻿<WndTap Name="station_op_v" Text="station_op_v" Ver="2">
-<var name="posco_rs_old" expr="0"/>
+<var name="posco_rs_old" expr="0"/>http://3ucs.com/mesapi
 <WndTaps>YU9894923012100410003818643410
 <WndTap Name="mesapi" Text="MES" popup="1"><Ctrls>
 <GroupBox  Name="gbwb" id="gbwb" Text="wb" Size="100,100"><Ctrls>
