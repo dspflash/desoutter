@@ -3,6 +3,8 @@
 
 或下载<a href="https://dspflash.github.io/xrel/xDesoutter_setup_1111.exe">desoutter 安装包</a>
 
+升级时可将新的代码直接覆盖desoutter文件夹的代码
+
 现在您可以使用xone客户端了，超轻量级云应用客户端，高颜值高效灵活稳定(http://3ucs.com/dl56.html)
 
 ## 简介
