@@ -21,7 +21,7 @@
 - 3UCS xPlus (http://3ucs.com/x/)
 - MySQL
 
-## 演示地址及截图(3UCS XOne客户端登陆)：http://0mes.3ucs.com
+## 演示地址及截图(3UCS XOne客户端登陆)：http://0mes.github.io
 ![](https://dspflash.github.io/res/desoutter/desoutter.gif).
 
 ![](imgs/xbsmobile.gif).
