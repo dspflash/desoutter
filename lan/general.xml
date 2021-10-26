@@ -12,6 +12,18 @@
 <Lang name="icon_station_op_v" value="Fas Fa-procedures"/>
 <Lang name="icon_users_v" value="Fas Fa-hospital-user"/>
 <Lang name="icon_user_role_v" value="Fas Fa-user-cog"/>
+<Lang name="icon_addone" 	value="fas fa-plus"/>
+<Lang name="icon_reset" value="fas fa-eraser"/>
+<Lang name="icon_search" value="fas fa-search"/>
+<Lang name="icon_create" value="fas fa-save"/>lni-add-files fa-file-medical  
+<Lang name="icon_modify" value="fas fa-edit"/>fa
+<Lang name="icon_go2Page" value="fas fa-directions"/>
+<Lang name="icon_initial" value="fab fa-first-order"/>
+<Lang name="icon_firstpage" value="fas fa-step-backward"/>
+<Lang name="icon_prepage" value="fas fa-angle-double-left"/>
+<Lang name="icon_nextpage" value="fas fa-angle-double-right"/>
+<Lang name="icon_endpage" value="fas fa-step-forward"/>
+<Lang name="icon_delete" value="fas fa-times"/>
 <Lang name="SerialNumber" value="Serial Number"/>
 <Lang name="ttp_SerialNumber" value="Serial Number"/>
 <Lang name="accountname" value="客户"/>
