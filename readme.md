@@ -1,5 +1,5 @@
 ﻿## 3UCS 智联装配（工业互联网）	(http://3ucs.com/x/xworks)
-源代码在desoutter文件夹中，而安装包带有完整源代码，安装完成后源代码在安装目录下（desoutter文件夹，直接下载release的exe安装包，简单方便）。
+源代码在desoutter文件夹中(90%以上的代码都是使用3UCS BizTool 自动化工具生成，给个性化定制节省了大量的时间，带来了极大的便利，参见http://3ucs.com/x)，而安装包带有完整源代码，安装完成后源代码在安装目录下（desoutter文件夹，直接下载release的exe安装包，简单方便）。
 
 或下载<a href="https://dspflash.github.io/xrel/xDesoutter_setup_1111.exe">desoutter 安装包</a>
 
