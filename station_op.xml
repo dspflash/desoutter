@@ -92,7 +92,7 @@
 	<mqtt function="publish" expr="0" topic="devices/%{posco_code}/jobs0"/>
 	<mqtt function="publish" expr="0" topic="devices/%{posco_code}/jobs1"/>
 	<mqtt function="publish" expr="0" topic="devices/%{posco_code}/jobs2"/>
-	<DbDetails><queryFormat>update product_screw set done=0 WHERE (station_id,product_id)=('%{stationid}',%{modellist_name[product_id]})</queryFormat></DbDetails><submit namelist="DbDetails"/><submit next="prod_piece_screw" function="resetcontent"/>
+	<DbDetails><queryFormat>update product_screw set done=0 WHERE (station_id,product_id)=('%{stationid}',%{modellist_name[product_id]})</queryFormat></DbDetails><submit namelist="DbDetails"/><submit next="prod_piece_screw" function="resetcontent"/><submit next="prod_piece_screws" function="resetcontent"/>
 	<assign name="status_memo" expr="Tighten Finished!"/>
 	<assign name="product_code" expr=""/>
 	<assign name="serialnumber" expr=""/>
@@ -211,7 +211,7 @@
 			<assign name="status_memo" expr="Posco Starting..."/>
 			</if>
 			<!--DbDetails><queryFormat>insert ignore into product_piece (serialnumber,product_id,dt) values('%{serialnumber}',%{modellist_name[product_id]},now())</queryFormat></DbDetails><submit namelist="DbDetails"/-->
-			<submit next="prod_piece_screw"/><submit next="prod_piece_screws"/>
+			<submit next="prod_piece_screws"/><submit next="prod_piece_screw"/>
 	</if>
 	</if></OnEnChange></TextBox><BR/>
 <!--Label Align="Right" Text="screw pos" Name="lb_screw_pos" readonly="true" Size="100,20"/-->
@@ -240,7 +240,7 @@
 			<submit next="station_cycletime_rs" delay="1000"/>
 			<submit next="station_tightening_rs"/>
 			<DbDetails><queryFormat>update product_screw set done=1,dt=NOW() where screw_id=%{prod_piece_screw[screw_id]}</queryFormat></DbDetails><submit namelist="DbDetails"/>
-			<submit next="prod_piece_screw" function="resetcontent"/><submit next="prod_piece_screw"/>
+			<submit next="prod_piece_screw"/>
 		<else/>
 			<submit next="station_cycletime_rs" delay="1000"/>
 			<submit next="station_tightening_rs"/>
