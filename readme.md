@@ -23,13 +23,9 @@
 
 ## 演示地址及截图(3UCS XOne客户端登陆)：http://0mes.github.io
 
-[Windows客户端XOne操作演示截图动画](https://dspflash.github.io/res/desoutter/desoutter.gif
+[Windows客户端XOne操作演示截图动画](https://dspflash.github.io/res/desoutter/desoutter.gif)
 
 ![](https://dspflash.github.io/res/desoutter/desoutter.gif).
-
-![](imgs/xbsmobile.gif).
-
-![](imgs/xbstech.gif).
 
 音视频演示(3UCS ERP安装部署) http://3ucs.com/video.php?vid=45
 
