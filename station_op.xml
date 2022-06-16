@@ -46,7 +46,7 @@
 <xi:include href="lan\station.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
 <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="lan\product.xml"/>
 <Ctrls>
-<GroupBox><Ctrls>
+<GroupBox name="station_ops"><Ctrls>
 <GroupBox Name="Operation" Text="Station Operation" feature="tab"><Ctrls>
 <GroupBox Name="GBstation_op_v1" id="station_op_v1" Text="station_op_v1" Size="100,100"><Ctrls>
 <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="station_op_GBDEDIT.xml"/>
